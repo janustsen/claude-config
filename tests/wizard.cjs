@@ -26,7 +26,7 @@ const cases = {
     assert.ok(result.stdout.endsWith('RESULT:test_example'));
   },
   'punctuation and whitespace round trip without evaluating values'() {
-    for (const value of ['', '  spaced  ', 'abc#def', "it's#literal", 'say "hello"#', '`literal`', '$HOME $(exit 99)', String.raw`literal\n\r\path`, 'both\'"quotes#']) {
+    for (const value of ['', '  spaced  ', 'abc#def', "it's#literal", 'say "hello"#', '`literal`', '$HOME $(exit 99)', String.raw`literal\n\r\path`, 'both\'"quotes#', 'double\'`choice#']) {
       fs.writeFileSync(envFile, 'OTHER=keep\n');
       const result = run('write_env VALUE "$TEST_VALUE" >/dev/null; _existing VALUE', { TEST_VALUE: value });
       assert.equal(result.status, 0, result.stderr);

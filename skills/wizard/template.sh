@@ -14,9 +14,9 @@ set -euo pipefail
 
 if [[ -t 1 ]] && command -v tput >/dev/null 2>&1 && [[ "$(tput colors 2>/dev/null || echo 0)" -ge 8 ]]; then
   BOLD=$(tput bold); DIM=$(tput dim); RESET=$(tput sgr0)
-  BLUE=$(tput setaf 4); GREEN=$(tput setaf 2); YELLOW=$(tput setaf 3); RED=$(tput setaf 1)
+  BLUE=$(tput setaf 4); GREEN=$(tput setaf 2); YELLOW=$(tput setaf 3)
 else
-  BOLD=""; DIM=""; RESET=""; BLUE=""; GREEN=""; YELLOW=""; RED=""
+  BOLD=""; DIM=""; RESET=""; BLUE=""; GREEN=""; YELLOW=""
 fi
 
 # Author sets this at the top of the stages section.
@@ -92,7 +92,25 @@ confirm() {
 _existing() {
   [[ -f "$ENV_FILE" ]] || return 1
   local line; line=$(grep -E "^${1}=" "$ENV_FILE" | tail -n1) || return 1
-  printf '%s' "${line#*=}"
+  local value="${line#*=}" quote pattern
+  value="${value#"${value%%[![:space:]]*}"}"
+  quote="${value:0:1}"
+  case "$quote" in
+    "'"|'"'|'`')
+      pattern="^${quote}((\\${quote}|[^${quote}])*)${quote}[[:space:]]*(#.*)?$"
+      [[ "$value" =~ $pattern ]] || return 1
+      value="${BASH_REMATCH[1]}"
+      if [[ "$quote" == '"' ]]; then
+        value="${value//\\n/$'\n'}"
+        value="${value//\\r/$'\r'}"
+      fi
+      ;;
+    *)
+      value="${value%%#*}"
+      value="${value%"${value##*[![:space:]]}"}"
+      ;;
+  esac
+  printf '%s' "$value"
 }
 
 # ask KEY "Prompt" reads a value into $KEY. Offers the existing .env value as
@@ -128,11 +146,23 @@ ask_secret() {
 # write_env KEY VALUE upserts KEY=VALUE into ENV_FILE (creates it; replaces
 # any existing line). Idempotent.
 write_env() {
-  local key="$1" value="$2" tmp
+  local key="$1" value="$2" tmp quote
+  # shortcut: single-line dotenv values only; multiline files need a full parser.
+  if [[ "$value" == *$'\n'* || "$value" == *$'\r'* ]]; then
+    printf 'Cannot save a multiline .env value. File unchanged.\n' >&2
+    return 1
+  fi
+  if [[ "$value" != *"'"* ]]; then quote="'"
+  elif [[ "$value" != *'`'* ]]; then quote='`'
+  elif [[ "$value" != *'"'* && "$value" != *'\n'* && "$value" != *'\r'* ]]; then quote='"'
+  else
+    printf 'Cannot quote this .env value losslessly. File unchanged.\n' >&2
+    return 1
+  fi
   touch "$ENV_FILE"
   tmp=$(mktemp)
   grep -vE "^${key}=" "$ENV_FILE" > "$tmp" || true
-  printf '%s=%s\n' "$key" "$value" >> "$tmp"
+  printf '%s=%s%s%s\n' "$key" "$quote" "$value" "$quote" >> "$tmp"
   mv "$tmp" "$ENV_FILE"
   WRITTEN_ENV+=("$key")
   printf '  %s✓ wrote%s %s → %s\n' "$GREEN" "$RESET" "$key" "$ENV_FILE"
