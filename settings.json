@@ -1,57 +1,47 @@
 {
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  "enabledPlugins": {
+    "ponytail@ponytail": true,
+    "frontend-design@claude-plugins-official": true
   },
-  "permissions": {
-    "defaultMode": "auto"
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
   },
-  "model": "opus",
+  "theme": "auto",
   "hooks": {
-    "SessionEnd": [
+    "PreToolUse": [
       {
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 ~/.claude/hooks/session-to-brain.py",
-            "timeout": 30
+            "command": "bash ~/.claude/hooks/deny-dangerous.sh",
+            "timeout": 10
           }
         ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": "Write|Edit|MultiEdit",
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/global-scan.sh",
+            "command": "bash ~/.claude/hooks/global-scan.sh",
             "timeout": 90
           }
         ]
       }
     ]
-  },
-  "enableWorkflows": true,
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "vercel@claude-plugins-official": true,
-    "octo@nyldn-plugins": true
-  },
-  "extraKnownMarketplaces": {
-    "nyldn-plugins": {
-      "source": {
-        "source": "git",
-        "url": "https://github.com/nyldn/plugins.git"
-      }
-    }
-  },
-  "effortLevel": "xhigh",
-  "skipDangerousModePermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
-  "theme": "auto",
-  "preferredNotifChannel": "auto",
-  "remoteControlAtStartup": true,
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  }
 }

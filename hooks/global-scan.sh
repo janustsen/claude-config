@@ -1,31 +1,19 @@
 #!/usr/bin/env bash
-# Language-agnostic live scan: secrets + SAST on the file Claude just edited.
+# Secrets (gitleaks) + SAST (semgrep) on the file just edited. Exit 2 blocks, including when a scanner breaks.
 set -uo pipefail
-input=$(cat)
-file=$(printf '%s' "$input" | jq -r '.tool_input.file_path // empty' 2>/dev/null)
+file=$(jq -r '.tool_input.file_path // .tool_input.notebook_path // empty' 2>/dev/null)
 [[ -n "$file" && -f "$file" ]] || exit 0
-
 findings=""
-
-# Secrets — dedicated scanner, works on any file type.
-# gitleaks emits its report to stderr (not stdout); -v adds per-finding detail,
-# and 2>&1 captures it so a hit actually reaches $findings and blocks.
-if command -v gitleaks >/dev/null 2>&1; then
-  if ! out=$(gitleaks detect --no-git --no-banner --redact -v --source "$file" 2>&1); then
-    [[ -n "$out" ]] && findings+="[gitleaks]"$'\n'"$out"$'\n'
-  fi
+repo=$(cd "$(dirname "$file")" 2>/dev/null && git rev-parse --show-toplevel 2>/dev/null) || repo=""
+cfg=""; [[ -n "$repo" && -f "$repo/.gitleaks.toml" ]] && cfg="$repo/.gitleaks.toml"   # repo rules and allowlists
+if command -v gitleaks >/dev/null; then
+  out=$(gitleaks detect --no-git --no-banner --redact -v ${cfg:+--config "$cfg"} --source "$file" 2>&1) || findings+="[gitleaks]"$'\n'"$out"$'\n'
 fi
-
-# SAST — auto-detects language; --error makes a finding a non-zero exit
-if command -v semgrep >/dev/null 2>&1; then
-  if ! out=$(semgrep --config auto --error --quiet --skip-unknown-extensions "$file" 2>/dev/null); then
-    [[ -n "$out" ]] && findings+="[semgrep]"$'\n'"$out"$'\n'
-  fi
-fi
-
-if [[ -n "${findings//[[:space:]]/}" ]]; then
-  { echo "Security scan flagged $file — please address before continuing:";
-    printf '%s\n' "$findings"; } >&2
-  exit 2
-fi
+command -v semgrep >/dev/null || { echo "semgrep missing: edit NOT scanned (fail closed)" >&2; exit 2; }
+[[ -z "${SSL_CERT_FILE:-}" ]] && export SSL_CERT_FILE=/etc/ssl/cert.pem
+err=$(mktemp); out=$(semgrep --config auto --error --quiet --skip-unknown-extensions "$file" 2>"$err"); rc=$?
+if [[ $rc -eq 1 ]]; then findings+="[semgrep]"$'\n'"$out"$'\n'
+elif [[ $rc -ge 2 ]]; then echo "semgrep failed (rc=$rc), edit NOT scanned:" >&2; tail -5 "$err" >&2; rm -f "$err"; exit 2; fi
+rm -f "$err"
+[[ -n "${findings//[[:space:]]/}" ]] && { echo "Security scan flagged $file:"; printf '%s\n' "$findings"; } >&2 && exit 2
 exit 0
