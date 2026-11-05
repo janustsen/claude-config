@@ -1,0 +1,1 @@
+source: https://github.com/blader/humanizer @ 0ef9fe5 (installed 2026-11-04; SKILL.md + LICENSE only)
