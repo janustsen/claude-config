@@ -75,59 +75,60 @@ Most real tools combine them in this order: needs-you, agents, KPIs, what change
 3. **Replace the greeting with nothing.** The section counts and new-item dots answer "what changed"; a summary sentence above them says it a second time. Use a since-last-visit line only on a screen that has no counted sections. [know].
 4. **On a reporting page, show the reporting frame once, in a 12px strip at the right of the tab row: period and "as of HH:MM TZ"; add a state word only when it is not final (Provisional, Stale).** Every number below inherits this frame instead of repeating it. A queue or inbox has no strip. [obs].
 5. **On a reporting page, a reference rail of about 300px (saved views, connected sources) may sit beside the narrative.** On a queue, the detail view is one column; sources and history open on demand. [obs].
-6. **Say each fact once.** Give every fact one home (a tile, a row, an item); everywhere else it appears as a chip that links to that home, never as a restated sentence. A detail view does not repeat the selected row; a summary line does not repeat the section counts. [know].
+6. **No brand block.** A single-workspace internal tool does not open its sidebar with a logo and the company name; the user knows where they are. Start with search or the first section. [obs: every reference app uses the slot for a switcher or a home button]
+7. **Say each fact once.** Give every fact one home (a tile, a row, an item); everywhere else it appears as a chip that links to that home, never as a restated sentence. A detail view does not repeat the selected row; a summary line does not repeat the section counts. [know].
 
 ### KPI tiles and numbers
 
-7. **Build KPI tiles as label plus change on line 1, current value plus absolute change on line 2, then a sparkline with a dashed reference line (target or previous period, labelled in place).** Use four equal tiles. Make the comparison the most salient element, because the delta drives the decision and the reference answers "versus what". [obs].
-8. **Label the state of every number that is not final (Provisional, Estimate, Forecast), and when an official and a provisional value both exist, show both side by side with a label and time each.** Estimates and forecasts go in lighter ink (75%). [obs].
-9. **Encode direction with arrow or sign in ink, add a muted caution hue for unfavourable deltas, and never use the failure red for a falling KPI.** A down week is information, not an incident. [obs, know].
-10. **Use `font-variant-numeric: tabular-nums` for every number that updates or aligns**, because proportional digits jitter on refresh and rag in columns. [obs, inf].
+8. **Build KPI tiles as label plus change on line 1, current value plus absolute change on line 2, then a sparkline with a dashed reference line (target or previous period, labelled in place).** Use four equal tiles. Make the comparison the most salient element, because the delta drives the decision and the reference answers "versus what". [obs].
+9. **Label the state of every number that is not final (Provisional, Estimate, Forecast), and when an official and a provisional value both exist, show both side by side with a label and time each.** Estimates and forecasts go in lighter ink (75%). [obs].
+10. **Encode direction with arrow or sign in ink, add a muted caution hue for unfavourable deltas, and never use the failure red for a falling KPI.** A down week is information, not an incident. [obs, know].
+11. **Use `font-variant-numeric: tabular-nums` for every number that updates or aligns**, because proportional digits jitter on refresh and rag in columns. [obs, inf].
 
 ### "What changed" narrative
 
-11. **Put one generated "what changed" block above the tables, set in a prose typeface distinct from data (serif 16/26), with inline entity chips carrying live values ("Region North ↘ 4.1%"), every figure bolded, and a footer "N sources · Updated 4 min ago".** It turns tiles into a story and stays auditable. [obs]. Extends L4.
-12. **Compute every figure in the narrative with queries, have the model only narrate, and label each quoted figure with its period** ("week to Sunday, excluding refunds"). The model is the hallucination source; the query is checkable. [doc, obs].
-13. **Regenerate the narrative on data refresh, mark the paragraph when it changed ("Updated 09:40, was 09:10"), and never rewrite it while someone is reading.** A silent rewrite mid-sentence was observed on the finance surface and is a trust failure. [obs, inf].
+12. **Put one generated "what changed" block above the tables, set in a prose typeface distinct from data (serif 16/26), with inline entity chips carrying live values ("Region North ↘ 4.1%"), every figure bolded, and a footer "N sources · Updated 4 min ago".** It turns tiles into a story and stays auditable. [obs]. Extends L4.
+13. **Compute every figure in the narrative with queries, have the model only narrate, and label each quoted figure with its period** ("week to Sunday, excluding refunds"). The model is the hallucination source; the query is checkable. [doc, obs].
+14. **Regenerate the narrative on data refresh, mark the paragraph when it changed ("Updated 09:40, was 09:10"), and never rewrite it while someone is reading.** A silent rewrite mid-sentence was observed on the finance surface and is a trust failure. [obs, inf].
 
 ### Event timeline and upcoming items
 
-14. **Explain each notable KPI jump in a vertical timeline: date and time on the left, a one-paragraph explanation, a link to the source records and a source count.** Use a fixed-height card with internal scroll and a bottom fade. Mark only the latest entry as current, in words, not with a pulse. [obs].
-15. **For each scheduled item (renewal, payroll run, launch, contract end), show three bullets: what is expected, the track record, and what to watch.** It prepares the decision before the date. [obs].
+15. **Explain each notable KPI jump in a vertical timeline: date and time on the left, a one-paragraph explanation, a link to the source records and a source count.** Use a fixed-height card with internal scroll and a bottom fade. Mark only the latest entry as current, in words, not with a pulse. [obs].
+16. **For each scheduled item (renewal, payroll run, launch, contract end), show three bullets: what is expected, the track record, and what to watch.** It prepares the decision before the date. [obs].
 
 ### Tables
 
-16. **Show 3-5 horizons as columns (Today / 7D / 30D / QTD), tint the sorted column and mark it with a caret, right-align tabular numbers, round to the precision the decision needs, and print the rounding rule.** Several horizons answer "blip or trend" in one glance. [obs].
-17. **Show the components of any computed total as signed rows above it, render derived ratios as italic rows indented 32px at 80% opacity, use a plain minus for negatives and "-" for missing values, and put export at the top right of the table toolbar.** Skeptics can rebuild the number without leaving the table. [obs].
+17. **Show 3-5 horizons as columns (Today / 7D / 30D / QTD), tint the sorted column and mark it with a caret, right-align tabular numbers, round to the precision the decision needs, and print the rounding rule.** Several horizons answer "blip or trend" in one glance. [obs].
+18. **Show the components of any computed total as signed rows above it, render derived ratios as italic rows indented 32px at 80% opacity, use a plain minus for negatives and "-" for missing values, and put export at the top right of the table toolbar.** Skeptics can rebuild the number without leaving the table. [obs].
 
 ### Provenance and connections
 
-18. **End a reporting page (not a queue) with a quiet provenance footer naming the source of each data class with its last sync time** ("Orders from <store platform>, synced 09:38 · Ad spend from <ad platform>, synced 06:00 · Payroll from <payroll provider>, synced Mon"), in 12px secondary ink with linked names, plus "Updated N ago" on each block. A skeptic can trace one number's origin. [obs].
-19. **Directly under any connect-a-source button, state access scope (read-only or write), what is stored (never credentials) and the processor; under any query tool, state coverage, data vintage and result cap in one line.** The doubt peaks at the click. [obs].
+19. **End a reporting page (not a queue) with a quiet provenance footer naming the source of each data class with its last sync time** ("Orders from <store platform>, synced 09:38 · Ad spend from <ad platform>, synced 06:00 · Payroll from <payroll provider>, synced Mon"), in 12px secondary ink with linked names, plus "Updated N ago" on each block. A skeptic can trace one number's origin. [obs].
+20. **Directly under any connect-a-source button, state access scope (read-only or write), what is stored (never credentials) and the processor; under any query tool, state coverage, data vintage and result cap in one line.** The doubt peaks at the click. [obs].
 
 ### Ask bar
 
-20. **Dock one ask bar at the bottom of the content column with a placeholder scoped to the current page ("Ask about Q4 margins"), kept separate from navigation search (see L18).** Navigating never fires an expensive query, and the question stays grounded in what is on screen. [obs].
-21. **Stream answers as sources first, then tables or charts with parameters taken from the question, then prose; never auto-scroll; numbers come from queries, each labelled with its period.** [obs]. Extends L5.
+21. **Dock one ask bar at the bottom of the content column with a placeholder scoped to the current page ("Ask about Q4 margins"), kept separate from navigation search (see L18).** Navigating never fires an expensive query, and the question stays grounded in what is on screen. [obs].
+22. **Stream answers as sources first, then tables or charts with parameters taken from the question, then prose; never auto-scroll; numbers come from queries, each labelled with its period.** [obs]. Extends L5.
 
 ### Agents as teammates
 
-22. **List agents like colleagues: avatar, name, current task in one line, and a state shown by icon and position (Working rows recede, Failed is red, Waiting on you is in needs-you).** Last activity and last receipt on hover or in the detail. The roster answers "is the system working?" in one scan. [know].
-23. **Leave a receipt for every finished agent run: one line of what it did with counts and duration, links to every object it touched, and undo where the action allows it.** A spinner that just disappears gives no evidence it worked. [know]. See L5, L10.
-24. **Review drafts as the recipient will see them: the recipient as an avatar chip, the subject as the first line, the body, and a primary button that names the consequence ("Send to <name>", "Post to #channel", "Charge $420").** No "To" or "Subject" labels, no "drafted for you" line, no helper text under the button. Pair it with Edit and Discard. Batch approval only for identical consequences, with the count in the button ("Send 4 replies"). [know]. See L9.
-25. **Put stop and pause wherever an agent's work shows: its roster row, its live progress line, and its detail view.** Pause keeps state; stop leaves a receipt of the partial work. A stop buried in settings is a stop nobody reaches in time. [know].
-26. **A waiting agent's request lives in needs-you; its roster pill reads "Waiting on you" and links there**, so the fact has one home (rule 6). [know].
+23. **List agents like colleagues: avatar, name, current task in one line, and a state shown by icon and position (Working rows recede, Failed is red, Waiting on you is in needs-you).** Last activity and last receipt on hover or in the detail. The roster answers "is the system working?" in one scan. [know].
+24. **Leave a receipt for every finished agent run: one line of what it did with counts and duration, links to every object it touched, and undo where the action allows it.** A spinner that just disappears gives no evidence it worked. [know]. See L5, L10.
+25. **Review drafts as the recipient will see them: the recipient as an avatar chip, the subject as the first line, the body, and a primary button that names the consequence ("Send to <name>", "Post to #channel", "Charge $420").** No "To" or "Subject" labels, no "drafted for you" line, no helper text under the button. Pair it with Edit and Discard. Batch approval only for identical consequences, with the count in the button ("Send 4 replies"). [know]. See L9.
+26. **Put stop and pause wherever an agent's work shows: its roster row, its live progress line, and its detail view.** Pause keeps state; stop leaves a receipt of the partial work. A stop buried in settings is a stop nobody reaches in time. [know].
+27. **A waiting agent's request lives in needs-you; its roster pill reads "Waiting on you" and links there**, so the fact has one home (rule 7). [know].
 
 ### Badges, colour and motion
 
-27. **Badge only what needs a human: count badges appear on needs-you and nowhere else, and the badge number always equals the length of that list.** A badge on every tab trains users to ignore badges. [know].
-28. **Use one accent for the primary action and selection only, and reserve red for real failure: a failed run, a broken sync, data or money at risk.** Warnings use amber, unfavourable deltas use a muted caution hue. When red means failure, a red pill gets read. [know]. Extends L1.
-29. **Nothing animates on live data: swap values silently in batches every 15-60s and use no rolling digits, flashes or pulsing rows.** Say nothing about liveness while it is live; say "Offline" or "Stale since 09:40" when it is not. Motion belongs to the user's own actions (see L19). This is stricter than the finance surface, which rolls one hero number. [obs, know].
+28. **Badge only what needs a human: count badges appear on needs-you and nowhere else, and the badge number always equals the length of that list.** A badge on every tab trains users to ignore badges. [know].
+29. **Use one accent for the primary action and selection only, and reserve red for real failure: a failed run, a broken sync, data or money at risk.** Warnings use amber, unfavourable deltas use a muted caution hue. When red means failure, a red pill gets read. [know]. Extends L1.
+30. **Nothing animates on live data: swap values silently in batches every 15-60s and use no rolling digits, flashes or pulsing rows.** Say nothing about liveness while it is live; say "Offline" or "Stale since 09:40" when it is not. Motion belongs to the user's own actions (see L19). This is stricter than the finance surface, which rolls one hero number. [obs, know].
 
 ### Mobile and copy
 
-30. **On narrow screens keep needs-you first, drop precision before data (absolute change, seconds and timezone go first, the % stays), render approval cards full width with the named button intact, and keep the ask bar docked.** [obs, know].
-31. **Write headlines as subject, verb, number ("Refunds rose 18% this week"), body as claim, evidence, caveat, and empty states as good news** ("Nothing needs you."). Errors name the cause and the next action (see L16). [obs, doc].
+31. **On narrow screens keep needs-you first, drop precision before data (absolute change, seconds and timezone go first, the % stays), render approval cards full width with the named button intact, and keep the ask bar docked.** [obs, know].
+32. **Write headlines as subject, verb, number ("Refunds rose 18% this week"), body as claim, evidence, caveat, and empty states as good news** ("Nothing needs you."). Errors name the cause and the next action (see L16). [obs, doc].
 
 ## Measured constants
 

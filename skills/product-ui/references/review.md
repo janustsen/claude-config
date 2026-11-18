@@ -34,6 +34,7 @@ Each item must be true, checked on a screenshot or by driving the app.
 - [ ] The main list is ordered by attention state, and background activity does not reorder it.
 - [ ] Done items collapse into a shelf with a count. "Done for now" is reversible, with undo.
 - [ ] Secondary areas (settings, usage, account) open as sheets over the work and return to the same scroll position.
+- [ ] The top-left slot switches workspace, account or model, or is the home button; no static logo-and-name block
 - [ ] Each fact is said once per screen. The detail view does not repeat the selected row.
 - [ ] Non-content words: at most 15 in the reading lane (section 0).
 
