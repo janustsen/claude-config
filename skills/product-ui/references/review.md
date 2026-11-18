@@ -1,6 +1,27 @@
 # Review
 
-Review the real build, not the code. Screenshot it, score it, fix the weakest thing, repeat on the same commit. Run in this order: the ship checklist, the per-screen checklist, worst-case data, then the scored loop until it passes.
+Review the real build, not the code. Screenshot it, score it, fix the weakest thing, repeat on the same commit. Run in this order: cut words, the ship checklist, the per-screen checklist, worst-case data, then the scored loop until it passes.
+
+## 0. Cut words; show, don't label (always first)
+
+1. Screenshot the screen at 1440x900 in light mode.
+2. Count every visible word that is not the user's data: labels, metadata, status words, section headers, helper lines, button text, placeholders. Count each number or timestamp as one word.
+3. Targets (from the reference apps, see slop-vs-good.md): at most 15 in the reading lane, zero facts said twice. Navigation and settings labels do not count against the lane; whole screens with navigation measure 30-60 on the reference apps.
+4. For each word, run in order and stop at the first that applies: is it said elsewhere on screen (delete)? Is it the default (delete)? Can position, section, icon, avatar or ink carry it (replace)? Does the user act differently because of it (keep)?
+5. Recount. Then count containers (at most 3 boxed or filled in the lane), columns (at most 2 persistent), text sizes (at most 4) and filled buttons (one per region).
+
+Before and after, from a generated agent inbox:
+
+| Before | After |
+|---|---|
+| Detail header "Approval · Quill drafted this for you · Halden Freight · 4m ago" under the title | The title alone; the selected row already says all four |
+| Sidebar "Since yesterday 17:40: 4 need you, 11 done, 1 failed" | Deleted: the section badge, the shelf count and the red row say it |
+| Row "Approval · Quill · Halden Freight" under each title | A kind icon or the client's logo; the section header says the state |
+| "Based on · 3" over three source cards | Inline source chips; one "3 sources" control that opens them |
+| "Check before sending." before a caveat | The caveat sentence, on an amber highlight |
+| "From sam@ferrowell.example · 1 recipient · 5s to undo after sending" | Deleted: "Send to Mira Okafor" says it, the undo appears after sending |
+| "To", "Subject" labels | Recipient as an avatar chip, the subject as the draft's first line |
+| "Live · checked 12:12" | Deleted; "Offline · last synced 12:12" appears only when it is true |
 
 Credit for sections 3-5: **heydamir/unslop** by Damir Sokolovsky (CC BY 4.0), **checklist.design** by George Hatzis and its agent skill (MIT), and a public T3 Code design-review run by Theo shown on X. Tags: [obs] seen in source or screenshots, [doc] the resource's own text, [inf] inference. Laws are cited by ID from [laws.md](laws.md).
 
@@ -13,12 +34,13 @@ Each item must be true, checked on a screenshot or by driving the app.
 - [ ] The main list is ordered by attention state, and background activity does not reorder it.
 - [ ] Done items collapse into a shelf with a count. "Done for now" is reversible, with undo.
 - [ ] Secondary areas (settings, usage, account) open as sheets over the work and return to the same scroll position.
-- [ ] Each fact is said once per screen.
+- [ ] Each fact is said once per screen. The detail view does not repeat the selected row.
+- [ ] Non-content words: at most 15 in the reading lane (section 0).
 
 **Placement**
 - [ ] Every control that configures the next action sits on the input that triggers it.
 - [ ] The primary button has one position and changes its icon and label with state.
-- [ ] There is exactly one filled accent button per region, and the accent appears nowhere decorative.
+- [ ] There is exactly one filled button per region (ink by default), and the accent appears nowhere decorative.
 - [ ] Non-default values are visible; default values are hidden.
 - [ ] Hover actions replace metadata in place with no layout shift, and are visible on touch.
 - [ ] Commit buttons name their consequence ("Send to Alex", "Apply 3 changes").
@@ -39,7 +61,7 @@ Each item must be true, checked on a screenshot or by driving the app.
 - [ ] ⌘K lists every action with its shortcut; tooltips show chords in one format.
 - [ ] Dark mode is designed (true or near black, white-alpha borders), not inverted. Both themes screenshotted.
 - [ ] Inputs are at least 16px on touch, hit areas at least 44px on coarse pointers, panels become sheets on phones.
-- [ ] Copy: sentence case, verb + object, counts in labels, one term per concept, one "…" style, no em dashes, no restating captions.
+- [ ] Copy: sentence case, verb + object, each count once on the thing it counts, one term per concept, one "…" style, no em dashes, no restating captions, no narration of what the screen shows.
 
 **AI surfaces** (if any): the ten review questions at the end of `ai-interaction-patterns`.
 
@@ -121,7 +143,7 @@ Rules:
 1. Give stat cards exactly a label, a figure and the change against a named reference with its period, because a sparkline in every card is noise and one good chart answers the trend question faster.
 2. Make one main chart span at least two thirds of the width at 280-360px tall, and make the secondary block a list or table, because two competing charts split attention.
 3. Use the same token for a legend dot and its chart series, because lists and charts then cross-reference without a legend lookup.
-4. Title the page by function (period, scope) with the secondary part muted, never with a greeting, because a dashboard is opened to make a decision. Where checklist.design asks for a personal welcome, use a since-last-visit summary instead ("Since Tuesday: 3 new leads, 1 invoice overdue") [inf].
+4. Title the page by function (period, scope) with the secondary part muted, never with a greeting, because a dashboard is opened to make a decision. Where checklist.design asks for a personal welcome, show nothing: the needs-you count on its section already answers "what changed". Add a since-last-visit line only when the screen shows no such counts [inf].
 5. In dark themes make the primary button off-white and spend the accent elsewhere, because an accent-filled button on dark competes with status color.
 6. Use one number format per figure type across the page, because "07" next to "$124,860.40" reads as two systems.
 
@@ -136,12 +158,12 @@ Run the audit for the matching screen before shipping and fix every "missing" th
 
 ### Dashboard and home
 
-- [ ] Welcome state summarizes what changed since the last visit.
+- [ ] What changed since the last visit is visible (as section counts and new-item dots, not a sentence restating them).
 - [ ] 3-5 key metrics, each with its time period and a comparison.
 - [ ] 3-5 quick actions, chosen from usage data.
 - [ ] Recent activity, ordered by last accessed.
 - [ ] "Requires action" separated from "FYI"; watch for alert fatigue (L17).
-- [ ] A "last updated" indicator somewhere on screen.
+- [ ] Stale or offline data says so where it is stale; live data carries no freshness label.
 - [ ] Onboarding retires once complete.
 - [ ] Empty dashboard offers a first action.
 - [ ] Layout control is available.
@@ -177,7 +199,7 @@ Run the audit for the matching screen before shipping and fix every "missing" th
 - [ ] Placeholder is lighter than the entered value.
 - [ ] Toggles are for on/off only, not for choosing between two options.
 - [ ] Button copy says what happens.
-- Detail views: title, then status with a text label (never color alone), then key details and edit; related activity and back navigation; destructive actions separated from the rest.
+- Detail views: title, then only what the list row did not already show; status is not repeated from the row; related activity and back navigation; destructive actions separated from the rest.
 
 ### Navigation
 
@@ -201,7 +223,7 @@ Run the audit for the matching screen before shipping and fix every "missing" th
 
 The extracted checklists have no dedicated card list; these card items come from the related lists and from unslop [doc]:
 
-- [ ] Status carries a text label, never color alone.
+- [ ] Status is never colour alone: an icon shape or the section header carries it too; the word appears once per screen.
 - [ ] Badges follow the dot-versus-number rule.
 - [ ] Stat cards: label, figure, change against a reference with period, no sparkline (unslop).
 - [ ] Loading skeleton mirrors the card and fades into the content.

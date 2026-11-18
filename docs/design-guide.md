@@ -21,7 +21,11 @@ Four studies, run in November 2026, each written as rules with their reasons and
 
 Every claim carries a provenance tag: **[obs]** observed live, **[src]** read in source, **[doc]** vendor docs, **[know]** prior knowledge not re-verified, **[inf]** inference. Rules resting only on [know] say so, so a later agent can re-check them.
 
-## 2. The thesis
+## 2. Rule zero: cut words; show, don't label
+
+What separates Perplexity, Granola, ChatGPT, Claude, Linear and T3 Code from generated UI is text economy. Their reading lanes carry 2-15 words that are not the user's content; a generated agent inbox built from an earlier version of these skills carried 64, with 8 facts shown twice. Each fact is said once, and state, kind, authorship and source are shown through position, icon, colour and avatar instead of words. Decoration (avatars, logos, favicons, imagery) stays: it replaces words. Targets: at most 15 non-content words in the reading lane, zero facts said twice, at most 3 boxed containers in the lane, at most 2 persistent columns, an ink primary button. Evidence and tests: [slop-vs-good.md](../skills/product-ui/references/slop-vs-good.md).
+
+## 2b. The thesis
 
 **The screen is a reading lane with tools at the edges.** The user's work (their document, record, thread, or the agent's output) is the most important thing on screen, and human attention is the scarce resource. Every element passes four tests:
 
@@ -29,6 +33,7 @@ Every claim carries a provenance tag: **[obs]** observed live, **[src]** read in
 2. Does it differ from the default? If not, hide it.
 3. Is this where the decision is made? If not, move it there.
 4. Does it need a human? If yes, make it loud and pull it to the top. If not, let it recede.
+5. Is it already said, by another element, by position, by an icon or by its section? If so, delete it.
 
 A product built this way feels calm while doing a lot, and that calm is what people mean by "clean and intuitive". For AI products one more sentence follows: **make delegation legible.** Users must see what the AI is doing, what it needs, what it changed and what it based that on, and must be able to stop, steer, correct and undo it.
 
@@ -76,19 +81,21 @@ Full text with reasons, evidence and anti-patterns: [laws.md](../skills/product-
 
 For any app screen, write each decision down before code ([product-ui SKILL.md](../skills/product-ui/SKILL.md)):
 
+0. Fill in what the request left out (users, the one job, realistic records, the few fields the job needs).
 1. Category and center of gravity.
 2. Scarce resource, core loop, one-sentence thesis.
 3. Shell: attention inbox, reading lane with its input, on-demand tools, sheets over the work.
 4. Objects and their closed state vocabulary; every verb with its inverse.
-5. Control placement at the point of decision.
-6. Density by urgency.
-7. Progressive disclosure: receipt, sentence with counts, typed rows, detail.
-8. Every state, before styling.
-9. Tokens.
-10. Motion.
-11. Keyboard.
-12. Copy, deleting first.
-13. Review on screenshots of the real build.
+5. Text budget: one home per fact, the cheapest carrier first (position, icon, colour, chip, then a word).
+6. Control placement at the point of decision.
+7. Density by urgency.
+8. Progressive disclosure: receipt, sentence with counts, typed rows, detail.
+9. Every state, before styling.
+10. Tokens.
+11. Motion.
+12. Keyboard.
+13. Copy, deleting first.
+14. Review on screenshots of the real build, starting with the word count.
 
 For a website ([website-design SKILL.md](../skills/website-design/SKILL.md)): archetype, the five-line brief (concept, world, type move, loud moment, signature), tokens, first screen, nav, sections, imagery, motion, copy, mobile, the floor, the final check.
 
@@ -147,7 +154,7 @@ The index, with the emotional register per field (colour, density, motion, prose
 | Morph send into stop (most chat apps) vs keep Stop separate (Cursor's orchestrator) | Morph for turns of seconds; separate fixed Stop for runs of hours. |
 | Sparklines in stat cards (Beautiful UI, Perplexity) vs numbers only (unslop) | Stat cards hold label, figure and change against a named reference; add a trend only when the trend is the subject, always with a reference line. |
 | Red for bad (finance) vs no red (health) | Field register: muted red for change against a reference in finance and ops; never in health; red elsewhere only for real failure. |
-| A personal welcome (checklist.design) vs no greeting (unslop) | A functional since-last-visit line ("Since Tuesday: 3 new leads, 1 invoice overdue"). |
+| A personal welcome (checklist.design) vs no greeting (unslop) | No greeting and no summary sentence: counts live on the sections they count. A since-last-visit line only on a screen with no counted sections. |
 | Warm cream, near-black and mono labels are what leading sites use vs what generated pages now cluster on (frontend-design) | Use them when the brief's world calls for them, never as the default for an unchosen axis. |
 
 ## 8. Credits

@@ -8,8 +8,8 @@ Built from: the dashboard anatomy of a live finance research surface (freshness 
 
 1. **What needs me, first.** The top of the page is the short list of items only a human can unblock, because that is why they opened it. See L17.
 2. **Needs-you kept apart from FYI.** Mixing "approve this" with "agent finished that" buries the one item that matters under ten that do not.
-3. **What happened since I last looked.** A since-last-visit summary, not a greeting, because the user already knows who they are and does not know what changed.
-4. **Is the data fresh?** Period, as-of time and a state word (Live, Provisional, Closed) before any number, because a stale KPI is a silent wrong decision.
+3. **What happened since I last looked.** New items marked as new (a dot) and counts on their sections, not a greeting and not a sentence restating those counts.
+4. **Is the data fresh?** Period and as-of on reporting numbers; on a live queue, nothing while it is live and a plain warning when it is stale or offline, because a stale number is a silent wrong decision and a "Live" label on every visit is noise.
 5. **Each fact said once.** A number in a tile, again in the prose and again in a table reads as three facts and invites "which one is right?".
 6. **Agents visible as teammates.** Who is working on what, who is waiting on me, who is stuck, and a receipt for what each one did.
 7. **Approvals that name the consequence.** "Send to <name>" tells the reviewer what the click does; "Approve" does not.
@@ -24,8 +24,8 @@ Core bet: the home is the list of things that need a human, ranked by consequenc
 
 - Needs-you section at the top, each item an actionable card (approve, reply, decide) [know].
 - FYI collapsed below as a dated feed with no badges [know].
-- Since-last-visit line above the queue: "Since Tue 17:40: 3 need you, 12 done, 1 failed" [know].
-- Empty queue written as good news with a timestamp: "Nothing needs you. Checked 14:05." [doc pattern: "No more bills this week"].
+- New items since the last visit get a dot; the needs-you count sits on its section, done items on a counted shelf. No summary sentence restating those counts [know].
+- Empty queue written as good news: "Nothing needs you." [doc pattern: "No more bills this week"].
 
 Choose this when most visits end in a decision: CRM follow-ups, support, approval-heavy workflows.
 
@@ -50,7 +50,7 @@ Core bet: the page is a roster of agents with state pills and receipts, plus the
 
 Choose this when agents do most of the work and the human's job is to unblock, review and correct them.
 
-Most real tools combine them in this order: freshness strip, needs-you, since-last-visit, agents, KPIs, what changed, timeline and tables, provenance.
+Most real tools combine them in this order: needs-you, agents, KPIs, what changed, timeline and tables. Freshness and provenance appear where a number is reported, not as permanent strips over a queue.
 
 ## Comparison
 
@@ -61,7 +61,7 @@ Most real tools combine them in this order: freshness strip, needs-you, since-la
 | Generated text | One-line item summaries | "What changed" paragraph | Receipts and drafts |
 | Badges | Needs-you count only | None | Waiting-on-you count only |
 | Primary action | Decide the item | Drill into a number | Approve, stop, pause |
-| Freshness signal | Last checked time | As-of time and state word in header | Per-agent last activity |
+| Freshness signal | None while live; a warning when stale | As-of time in the header | Per-agent last activity on hover |
 | Failure display | Item flagged "Failed" with cause | Source marked stale in strip and footer | State pill "Failed" with cause and retry |
 | Live updates | New items appended silently | Values swapped silently in batches | Pills and progress lines swapped silently |
 | Typical visit | 30 seconds, ends in a click | Minutes, ends in understanding | Seconds, ends in "all fine" or an unblock |
@@ -70,12 +70,12 @@ Most real tools combine them in this order: freshness strip, needs-you, since-la
 
 ### Page structure
 
-1. **Order the page to answer "what needs me, and is the system working?" before anything else**: freshness strip, needs-you, since-last-visit, then KPIs, narrative, timeline and tables, then provenance. Anything that does neither waits below the fold. [know]. See L17.
+1. **Order the page to answer "what needs me, and is the system working?" before anything else**: needs-you, then running work, then KPIs, narrative, timeline and tables. Anything that does neither waits below the fold. "Is it working" is answered by the absence of failures, not by a status sentence. [know]. See L17.
 2. **Keep needs-you and FYI in separate sections, and never interleave them in one feed.** Needs-you items leave the list only when a human resolves them; FYI items age out. One "approve" hidden among ten "done" lines is a missed approval. [know].
-3. **Replace the greeting with a since-last-visit summary anchored to the user's last visit time** ("Since Tue 17:40: 3 need you, 12 done by agents, 1 failed"), with each count linking to its items. It answers the question the greeting wastes. [know], proactive-home pattern [doc].
-4. **Show the reporting frame once, in a 12px freshness strip at the right of the tab row: period, "as of HH:MM TZ", and one state word (Live, Provisional, Closed books, Stale).** When a source is stale, the strip names it. Every number below inherits this frame instead of repeating it. [obs].
-5. **Split the page into a narrative column (what changed and why) and a reference rail of about 300px (stable lists, saved views, connected sources), ending the rail with the provenance footer.** Users learn that the rail is lookup and the column is news. [obs].
-6. **Say each fact once.** Give every fact one home (a tile, a row, an item); everywhere else it appears as a chip that links to that home, never as a restated sentence. The since-last-visit line counts and links; it does not re-describe the needs-you items. [know].
+3. **Replace the greeting with nothing.** The section counts and new-item dots answer "what changed"; a summary sentence above them says it a second time. Use a since-last-visit line only on a screen that has no counted sections. [know].
+4. **On a reporting page, show the reporting frame once, in a 12px strip at the right of the tab row: period and "as of HH:MM TZ"; add a state word only when it is not final (Provisional, Stale).** Every number below inherits this frame instead of repeating it. A queue or inbox has no strip. [obs].
+5. **On a reporting page, a reference rail of about 300px (saved views, connected sources) may sit beside the narrative.** On a queue, the detail view is one column; sources and history open on demand. [obs].
+6. **Say each fact once.** Give every fact one home (a tile, a row, an item); everywhere else it appears as a chip that links to that home, never as a restated sentence. A detail view does not repeat the selected row; a summary line does not repeat the section counts. [know].
 
 ### KPI tiles and numbers
 
@@ -102,7 +102,7 @@ Most real tools combine them in this order: freshness strip, needs-you, since-la
 
 ### Provenance and connections
 
-18. **End every page with a quiet provenance footer naming the source of each data class with its last sync time** ("Orders from <store platform>, synced 09:38 · Ad spend from <ad platform>, synced 06:00 · Payroll from <payroll provider>, synced Mon"), in 12px secondary ink with linked names, plus "Updated N ago" on each block. A skeptic can trace one number's origin. [obs].
+18. **End a reporting page (not a queue) with a quiet provenance footer naming the source of each data class with its last sync time** ("Orders from <store platform>, synced 09:38 · Ad spend from <ad platform>, synced 06:00 · Payroll from <payroll provider>, synced Mon"), in 12px secondary ink with linked names, plus "Updated N ago" on each block. A skeptic can trace one number's origin. [obs].
 19. **Directly under any connect-a-source button, state access scope (read-only or write), what is stored (never credentials) and the processor; under any query tool, state coverage, data vintage and result cap in one line.** The doubt peaks at the click. [obs].
 
 ### Ask bar
@@ -112,9 +112,9 @@ Most real tools combine them in this order: freshness strip, needs-you, since-la
 
 ### Agents as teammates
 
-22. **List agents like colleagues: name, current task in one line, a state pill (Working, Waiting on you, Blocked, Idle, Failed), last activity time and last receipt.** The roster answers "is the system working?" in one scan. [know].
+22. **List agents like colleagues: avatar, name, current task in one line, and a state shown by icon and position (Working rows recede, Failed is red, Waiting on you is in needs-you).** Last activity and last receipt on hover or in the detail. The roster answers "is the system working?" in one scan. [know].
 23. **Leave a receipt for every finished agent run: one line of what it did with counts and duration, links to every object it touched, and undo where the action allows it.** A spinner that just disappears gives no evidence it worked. [know]. See L5, L10.
-24. **Review drafts as approval cards: the draft as the recipient will see it, the recipient and channel, and a primary button that names the consequence ("Send to <name>", "Post to #channel", "Charge $420").** Pair it with Edit and Discard. Batch approval only for identical consequences, with the count in the button ("Send 4 replies"). [know]. See L9.
+24. **Review drafts as the recipient will see them: the recipient as an avatar chip, the subject as the first line, the body, and a primary button that names the consequence ("Send to <name>", "Post to #channel", "Charge $420").** No "To" or "Subject" labels, no "drafted for you" line, no helper text under the button. Pair it with Edit and Discard. Batch approval only for identical consequences, with the count in the button ("Send 4 replies"). [know]. See L9.
 25. **Put stop and pause wherever an agent's work shows: its roster row, its live progress line, and its detail view.** Pause keeps state; stop leaves a receipt of the partial work. A stop buried in settings is a stop nobody reaches in time. [know].
 26. **A waiting agent's request lives in needs-you; its roster pill reads "Waiting on you" and links there**, so the fact has one home (rule 6). [know].
 
@@ -122,12 +122,12 @@ Most real tools combine them in this order: freshness strip, needs-you, since-la
 
 27. **Badge only what needs a human: count badges appear on needs-you and nowhere else, and the badge number always equals the length of that list.** A badge on every tab trains users to ignore badges. [know].
 28. **Use one accent for the primary action and selection only, and reserve red for real failure: a failed run, a broken sync, data or money at risk.** Warnings use amber, unfavourable deltas use a muted caution hue. When red means failure, a red pill gets read. [know]. Extends L1.
-29. **Nothing animates on live data: swap values silently in batches every 15-60s, refresh "Updated N ago" in the same batch, and use no rolling digits, flashes or pulsing rows.** State liveness in words in the freshness strip. Motion belongs to the user's own actions (see L19). This is stricter than the finance surface, which rolls one hero number. [obs, know].
+29. **Nothing animates on live data: swap values silently in batches every 15-60s and use no rolling digits, flashes or pulsing rows.** Say nothing about liveness while it is live; say "Offline" or "Stale since 09:40" when it is not. Motion belongs to the user's own actions (see L19). This is stricter than the finance surface, which rolls one hero number. [obs, know].
 
 ### Mobile and copy
 
 30. **On narrow screens keep needs-you first, drop precision before data (absolute change, seconds and timezone go first, the % stays), render approval cards full width with the named button intact, and keep the ask bar docked.** [obs, know].
-31. **Write headlines as subject, verb, number ("Refunds rose 18% this week"), body as claim, evidence, caveat, and empty states as good news with a time** ("Nothing needs you. Checked 14:05."). Errors name the cause and the next action (see L16). [obs, doc].
+31. **Write headlines as subject, verb, number ("Refunds rose 18% this week"), body as claim, evidence, caveat, and empty states as good news** ("Nothing needs you."). Errors name the cause and the next action (see L16). [obs, doc].
 
 ## Measured constants
 
@@ -135,7 +135,7 @@ Carried over from the finance dashboard measurements [obs] unless marked otherwi
 
 | What | Value | Source |
 |---|---|---|
-| Freshness strip | 12px, right of the tab row; one state word + date + timezone | [obs] |
+| Freshness strip (reporting pages only) | 12px, right of the tab row; period + as-of; a state word only when not final | [obs] |
 | Reference rail | ~300px; sidebar 240px, resizable 200-400px | [obs] |
 | KPI row | 4 equal tiles; name 14/20 weight 500; secondary value 12/16 at 75% ink | [obs] |
 | Ink roles | secondary 75% alpha, tertiary 50% | [obs] |
@@ -156,7 +156,9 @@ Carried over from the finance dashboard measurements [obs] unless marked otherwi
 
 ## Anti-patterns seen
 
-- **Greeting as the hero.** "Good morning!" in 32px with nothing about what changed. Fix: the since-last-visit summary in that slot.
+- **Greeting as the hero.** "Good morning!" in 32px with nothing about what changed. Fix: the queue itself, with its counts on its sections.
+- **A summary sentence restating the counts.** "Since yesterday: 4 need you, 11 done, 1 failed" above a badged needs-you section and a "Done 11" shelf. Fix: delete it.
+- **The detail repeats the row.** Type, agent, client and age on the row, then again under the detail title. Fix: the title alone.
 - **Needs-you mixed into the activity feed.** The one approval scrolls away under agent chatter. Fix: two sections, needs-you first.
 - **Badges everywhere.** Every tab carries a count, so none means anything. Fix: badge only needs-you.
 - **The same number three times.** A KPI in a tile, restated in the narrative and again in a summary table, each rounded differently. Fix: one home per fact, chips elsewhere, rounding rule printed.
@@ -172,16 +174,16 @@ Carried over from the finance dashboard measurements [obs] unless marked otherwi
 
 1. Answer "what needs me, and is the system working?" at the top, because that is why the page was opened.
 2. Keep needs-you and FYI in separate sections, because one approval in a feed of ten updates gets missed.
-3. Replace the greeting with "Since <last visit>: N need you, N done, N failed", because change is the news.
-4. Put period, as-of time and a state word in one header strip, because every number inherits its frame.
+3. Replace the greeting with nothing; counts live on their sections and new items carry a dot, because a sentence restating them is the same news twice.
+4. On reporting pages put period and as-of in one header strip, because every number inherits its frame; on queues say nothing until data is stale.
 5. Give every fact one home and link to it elsewhere, because repeated facts drift and invite doubt.
 6. Build KPI tiles as delta first, value second, sparkline with a labelled dashed reference, because the comparison drives the decision.
 7. Write one "what changed" paragraph with live chips and bold figures, computed by queries and narrated by the model, because it is readable and checkable.
 8. Explain each KPI jump in a dated, sourced timeline, because "why did it move" is the next question.
 9. Show formula rows above totals and estimates in lighter ink, because skeptics rebuild numbers in place.
-10. Name each data source and its last sync in the footer, because one stale source can poison a page.
+10. On reporting pages, name each data source and its last sync in the footer, because one stale source can poison a page.
 11. Scope the ask bar to the page and keep it apart from navigation, because questions stay grounded and navigation stays cheap.
-12. Show agents as teammates with state pills and receipts, because "is it working?" needs evidence, not a spinner.
+12. Show agents as teammates with avatars, a state icon and receipts on demand, because "is it working?" needs evidence, not a spinner or a pill on every row.
 13. Name the consequence on every approval button ("Send to <name>"), because the reviewer must know what the click does.
 14. Put stop and pause where the agent's work shows, because a stop must be reachable in time.
 15. Badge only what needs a human, one accent, red only for failure, because scarce signals get read.
