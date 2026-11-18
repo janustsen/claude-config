@@ -77,7 +77,7 @@ Each pattern: anatomy (the best observed version), states, when to use it, and w
 - **Seen in.** v0 [obs], Midjourney [doc], Perplexity [obs].
 
 ### Agent state pill
-- **Anatomy.** A pill on the row or card in a closed vocabulary: Working (shimmer) / Waiting on you / Error (by cause) / Done. Done means a completion the user has not seen yet. Priority: approval > input > request > ready. Working rows recede to 70% opacity; needs-you rows never fade. The agent sits under a human owner ("Sam └ Agent").
+- **Anatomy.** A pill on the row or card in a closed vocabulary: Working (shimmer) / Waiting on you / Error (by cause) / Done. Done means a completion the user has not seen yet. Priority: approval > input > request > ready. A failure that needs a human counts as needs-you; within needs-you, sort by consequence: failures that block other work, then approvals, then questions, then reviews. Working rows recede to 70% opacity; needs-you rows never fade. The agent sits under a human owner ("Sam └ Agent").
 - **Seen in.** T3 Code [src], Linear [obs].
 
 ### Motion signature per agent state

@@ -47,7 +47,7 @@ Define every one of these for every AI surface before styling. Most AI UI that f
 | Reorganise, tag, assign, link records | Yes (activity log) | Dashed suggestion chip; accept with a click or key; auto-apply only per-field opt-in |
 | Bulk change across many records | Partly | Dry run on one view ("Try on this view"), then "Apply to all 240" |
 | Run a shell command, call a tool with side effects | Sometimes | Permission mode (ask / auto-accept edits / auto / full access), with inline approval on the action row |
-| Send, post, publish, deploy, pay, book | No | Stage, then a commit button naming recipient, amount and effect; single-use, time-boxed approval |
+| Send, post, publish, deploy, pay, book | No | Stage, then a commit button naming recipient, amount and effect; single-use, time-boxed approval. For sends, add a delayed commit: hold the message for 5s with an inline "Sending to Alex in 5s · Undo ⌘Z" at the button, so the cheap undo exists before the irreversible moment |
 | Spend shared money or reputation | No | All of the above plus who handles the after-care and where the result will be listed |
 
 ## Pattern index

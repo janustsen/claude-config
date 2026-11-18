@@ -265,3 +265,7 @@ Source: a public T3 Code design-review run by Theo, shown in screenshots on X [o
 2. On a redesign, write the five-line direction, then the nine unslop passes (section 3).
 3. Audit each screen with its checklist (section 4).
 4. Score the screenshots against two benchmarks on one commit, iterate to 9/10 (section 5).
+
+## 7. Light review for a prototype
+
+A single-file prototype or a spike does not need the full loop. Screenshot it in both themes at 1440 and 390, run the ship checklist (section 1) and the matching per-screen checklist (section 4), click through every control once, and note which items were checked by reading code rather than driving. Run the scored loop before the design ships for real.

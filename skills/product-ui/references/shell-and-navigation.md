@@ -13,7 +13,7 @@ Where things go and why. Each section gives what the best products do, the reaso
 - **Overlays:** settings, usage and account open as large sheets over the current item. Closing returns to the exact scroll position.
 
 ### Rules
-1. Land the user on the primary input of their most recent context, never on a dashboard of tiles. A returning user's first screen answers "what changed since last time, and what needs me", with needs-action kept apart from FYI.
+1. Land the user on the primary input of their most recent context, never on a dashboard of tiles. A returning user's first screen answers "what changed since last time, and what needs me", with needs-action kept apart from FYI. Its counts are disjoint (an item counts once, in its most urgent bucket), each links to its items, and they are a snapshot from arrival: new events add a quiet "2 new" marker instead of silently recounting.
 2. Sort the primary list by attention state (needs you, then in progress, then done). Activity never reorders rows; only a "needs you" event (finished, failed, approval, question) returns an item to the top.
 3. Give "done for now" its own reversible state (T3 calls it Settle) between active and archived, shown as a collapsed shelf with a count ("Settled 100 ⌄"), about 10 rows then "Show 25 more". Auto-settle what is obviously finished (merged, inactive), and say in settings what does not auto-settle.
 4. Open secondary areas as sheets over the work. Route swaps that drop context are for genuinely separate destinations only.

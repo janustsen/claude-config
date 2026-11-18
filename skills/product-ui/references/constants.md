@@ -49,7 +49,7 @@ Dense tools (Linear, Cursor) use 13px UI. Reading products (chat, docs) use 14px
 | Canvas | tinted near-white paper, or true or near black | T3 `#fcfcfc` / `#000`; Cursor `#f7f7f4`; Linear `#08090a` |
 | Raised surfaces | white in light; about `#111` in dark | T3 card `#fff`, dark `color-mix(in srgb, oklch(14.5% 0 0) 97%, #fff)` |
 | Chrome vs content | a 1-2% luminance step plus a 10% hairline | Atlas chrome `#fcfcfc` on content `#fff`; T3 sidebar `#fafafa` |
-| Text ladder | ink at about 100 / 70 / 55 / 40%; muted text at least 4.5:1 | Cursor 100/92/60/50/40; Perplexity 100/75/50; T3 muted zinc-500 `#71717b` (4.70:1) |
+| Text ladder | ink at about 100 / 75 / 60 / 45%. Measure on the real surface: the tertiary role (meta, descriptions) must reach 4.5:1, so darken it until it does; the quaternary 45% role is only for placeholders, disabled text and decorative icons | Cursor 100/92/60/50/40; Perplexity 100/75/50; T3 muted zinc-500 `#71717b` (4.70:1) |
 | Borders | ink 6-10% light; white 5-8% dark | T3 zinc-200 `#e4e4e7`, dark white 8%; Linear 5-8% white |
 | Hover fill | foreground at about 4% | T3 zinc-100 `#f4f4f5`, dark white 4% |
 | Selected row | foreground at 6-9%, never the accent; must still reach 3:1 against neighbours via fill, outline or weight | T3; vercel-labs/ui |
@@ -57,7 +57,7 @@ Dense tools (Linear, Cursor) use 13px UI. Reading products (chat, docs) use 14px
 | Primary button | often ink, not accent (near-black on light, off-white on dark) | Perplexity, Cursor, unslop dark rule |
 | Button mix | about 1 filled per 6; outline about 1/3, ghost about 2/5 | T3 33% outline, 38% ghost, 17% primary |
 | User bubble | soft neutral | T3 `#ebebed` / `#1e1e1e` |
-| Status | a word + an icon + a semantic hue used for nothing else; status pills at about 15% alpha, fills 8% light / 16% dark | T3; Beautiful UI |
+| Status | a word + an icon + a semantic hue used for nothing else, never the accent (needs-you is carried by position, weight, a count badge and an attention hue such as amber, so the accent stays free for the one action and focus); status pills at about 15% alpha, fills 8% light / 16% dark | T3; Beautiful UI |
 | Direction (up/down) | colour plus sign or arrow; muted mid-dark hues, alpha ladder 100 / 65 / 9 / 5.5% | Perplexity `#016B1D` / `#A23544`, dark `rgb(83,158,85)` / `rgb(220,105,115)` |
 | Dark mode | true or near black, raised `#111`, white-alpha borders, not grey fills; off-white primary; inset highlight `inset 0 1px 0 rgba(255,255,255,.12)` | T3; unslop |
 | Contrast | compute it: primary text 7:1, secondary 4.6:1; let users scale contrast (50-200%) | T3 theme generator |
@@ -175,6 +175,7 @@ Reduced motion keeps meaning: blinks become holds, shimmer becomes static dim te
 | IDE | ⌘B sidebar, ⌘J terminal or drawer, ⌘P go to file, ⇧⌘F search, F6 cycle areas |
 | Browser | ⌘[ ⌘] back and forward, ⌘T / ⌘W / ⇧⌘T tabs, ⌘1-9 jump |
 | Chat | ⌘K palette, ⇧⌘O new chat, ↑ recall last prompt, Enter send, ⇧Enter newline |
+| Mail or triage queue | J / K next and previous, Enter open, E done or archive, R reply, ⌘Enter send, H or S snooze, # delete, Z undo (Gmail, Superhuman) |
 | Issue tracker | single-key verbs on the selected row (C create, A assign, S status, L label, P priority), G-chords to navigate, `?` for the sheet |
 | Agent run | Esc or ⌘. stops when the input is empty; ⌘Enter queues instead of steering |
 
