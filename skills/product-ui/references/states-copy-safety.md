@@ -8,7 +8,7 @@ Every list, panel and AI surface defines all of these. A state nobody designed i
 
 | State | What it shows | Rule |
 |---|---|---|
-| Empty (zero) | A question plus the primary input, or one muted line with the first action | No illustrations, no fake suggestions in a returning-user tool. "No archived threads." "Nothing needs you. Agents finished 4 things since yesterday →" |
+| Empty (zero) | A question plus the primary input, or one muted line with the first action | No illustrations, no fake suggestions in a returning-user tool. "No archived threads." "Nothing needs you." |
 | No results | One muted line and "Clear filters" | Distinct from zero: the user caused it, so offer the undo |
 | Loading | A skeleton in the final shape plus a text label, after 400ms | Avatar circle, two bars of varied width, right-side meta bars, under "Loading pull requests…"; pulse 2.4s stepped |
 | Partial or streaming | Reserved final footprint; finished blocks fade in | Min-height on streaming answers; hidden action rows stay mounted with `pointer-events: none` |
@@ -62,8 +62,10 @@ Method: judge each string next to what is on screen, cut whole clauses, leave pa
 13. Placeholders teach input syntax and name the scope: "Ask anything. @ files, $ skills, / commands", "Ask about NVDA".
 14. In anxious domains (health, money), validate before instructing, and use ordered words ("Most likely", "Possible") instead of false-precision percentages.
 15. Translate into personal units where it helps decide: a per-day allowance, a debt-free date.
-16. Never use a greeting headline in a work tool. A functional line ("Since Tuesday: 3 new leads, 1 invoice overdue") replaces it.
-17. Say each fact once per screen. If the page header says sending is on, the sidebar and the controls do not repeat it.
+16. Never use a greeting headline in a work tool, and do not replace it with a summary sentence that restates counts already on screen. The page title is the function ("Inbox"); counts live on the sections they count.
+17. Say each fact once per screen. If the page header says sending is on, the sidebar and the controls do not repeat it. A detail view never repeats the selected row's state, owner, client or age.
+18. Do not narrate the screen. "X drafted this for you", "Based on", "Check before sending", "AI summary", "Here is your…": the button, the ink and the content already say it.
+19. Do not label what position makes obvious: no "To" and "Subject" on a draft, no "Title" over a title, no "Status:" before a status.
 
 ## 3. Safety and reversibility
 

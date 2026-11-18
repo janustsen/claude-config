@@ -8,6 +8,22 @@ license: MIT
 
 Sites that feel designed are not more decorated. They make one strong, specific choice in each of four places (concept, art direction, a type move, one signature detail), spend loudness in exactly one place, and keep everything else neutral and fast. Templated sites come from making no decision at those four places.
 
+## Rule zero: cut words; show, don't label
+
+Generated pages label what they show and say each thing twice. Delete any text that delineates something already clear, and any information the visitor would not act on. Decoration is not clutter: imagery, product shots, logos, icons and texture stay, and they replace words.
+
+| Generated (cut) | Designed |
+|---|---|
+| An eyebrow ("FEATURES", "HOW IT WORKS") over a heading that says the same | The heading alone |
+| A subtitle that rephrases the headline | The headline's continuation in a second ink, or nothing |
+| A feature card: icon, title, two lines restating the title | The product doing it: a screenshot or a live demo with one line |
+| A stats band repeating numbers already in the hero | One home per number |
+| Middle-dot meta strings ("Updated 4 Nov · 5 min read · By the team") | Only the fact the reader uses, or none |
+| Footer meta and helper prose ("Built with care", "All rights reserved" repeated per section) | Legal once, in the footer |
+| In product mocks: a header restating the list row ("Approval · Quill drafted this for you · Halden Freight · 4m ago"), "Based on · 3", "Check before sending.", a scope line under the button | A mock with real content and only the words the real product would carry (see `product-ui` rule zero) |
+
+Test: count the words on the first screen that are neither the claim, the product's real content nor a button. Leading sites (Linear, Granola, Stripe, Apple) keep that under 15; push until yours does too.
+
 ## Step 0: write the five-line brief before any code
 
 1. **Concept**: the metaphor the whole site lives inside. A desktop OS with draggable windows (PostHog), a film strip (a portfolio), a farewell letter (Arc), an object in a dark studio (Teenage Engineering), or "the product itself" for tools.

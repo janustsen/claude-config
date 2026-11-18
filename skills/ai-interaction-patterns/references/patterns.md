@@ -77,7 +77,7 @@ Each pattern: anatomy (the best observed version), states, when to use it, and w
 - **Seen in.** v0 [obs], Midjourney [doc], Perplexity [obs].
 
 ### Agent state pill
-- **Anatomy.** A pill on the row or card in a closed vocabulary: Working (shimmer) / Waiting on you / Error (by cause) / Done. Done means a completion the user has not seen yet. Priority: approval > input > request > ready. A failure that needs a human counts as needs-you; within needs-you, sort by consequence: failures that block other work, then approvals, then questions, then reviews. Working rows recede to 70% opacity; needs-you rows never fade. The agent sits under a human owner ("Sam └ Agent").
+- **Anatomy.** A closed vocabulary: Working (shimmer) / Waiting on you / Error (by cause) / Done. Show it as an icon and colour on the row; spell the word only where the list is not already sectioned by state, and never again in the detail header. Done means a completion the user has not seen yet. Priority: approval > input > request > ready. A failure that needs a human counts as needs-you; within needs-you, sort by consequence: failures that block other work, then approvals, then questions, then reviews. Working rows recede to 70% opacity; needs-you rows never fade. The agent sits under a human owner ("Sam └ Agent").
 - **Seen in.** T3 Code [src], Linear [obs].
 
 ### Motion signature per agent state
@@ -130,7 +130,7 @@ Each pattern: anatomy (the best observed version), states, when to use it, and w
 - **Seen in.** Doctronic [obs].
 
 ### Number state and arithmetic
-- **Anatomy.** Every number says what it is (live, closed, estimate, calculated) and "as of" when. Sums, filters and projections are computed by deterministic code; the model states the method and what it left out. Recommendations show the user's own maths behind an ⓘ ("Why 3%? Here's the math…"). Constraint failures are stated plainly with the nearest feasible value as a chip ("These aren't all under $15 · Under $500").
+- **Anatomy.** Every number that is not live and final says what it is (closed, estimate, calculated) and "as of" when; a page-level frame says it once for all numbers below. Sums, filters and projections are computed by deterministic code; the model states the method and what it left out. Recommendations show the user's own maths behind an ⓘ ("Why 3%? Here's the math…"). Constraint failures are stated plainly with the nearest feasible value as a chip ("These aren't all under $15 · Under $500").
 - **Seen in.** Perplexity Finance [obs], Cleo [doc], Daydream [obs].
 
 ### Honest limits of verification
@@ -183,7 +183,7 @@ Each pattern: anatomy (the best observed version), states, when to use it, and w
 - **Seen in.** T3 Code [src], Cursor run modes [doc], ChatGPT [doc].
 
 ### Consequence-named commit
-- **Anatomy.** The commit button names the effect and updates live: "Apply 3 changes" → "Apply 2 changes", "Send to Alex", "Schedule for Thu 9:00", "✦ Buy for me · $345". Yes and no get equal width in consent dialogs. Scope reassurance sits directly under the button.
+- **Anatomy.** The commit button names the effect and updates live: "Apply 3 changes" → "Apply 2 changes", "Send to Alex", "Schedule for Thu 9:00", "✦ Buy for me · $345". Yes and no get equal width in consent dialogs. Scope copy sits under the button only when the scope is not the default and the button cannot say it (a different sender, a wider audience, write access); never restate the button ("1 recipient").
 - **Seen in.** Beautiful UI, Daydream, Atlas, Perplexity [obs].
 
 ### Single-use money approval

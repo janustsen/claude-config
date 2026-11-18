@@ -53,11 +53,11 @@ Dense tools (Linear, Cursor) use 13px UI. Reading products (chat, docs) use 14px
 | Borders | ink 6-10% light; white 5-8% dark | T3 zinc-200 `#e4e4e7`, dark white 8%; Linear 5-8% white |
 | Hover fill | foreground at about 4% | T3 zinc-100 `#f4f4f5`, dark white 4% |
 | Selected row | foreground at 6-9%, never the accent; must still reach 3:1 against neighbours via fill, outline or weight | T3; vercel-labs/ui |
-| Accent | one hue, derived from the domain; on the single primary action per region, checked controls, sliders and focus | T3 `oklch(0.488 0.217 264)` light, `oklch(0.571 0.21 264)` dark |
-| Primary button | often ink, not accent (near-black on light, off-white on dark) | Perplexity, Cursor, unslop dark rule |
+| Accent | one hue, derived from the domain or brand; on checked controls, sliders, focus and the one needs-you signal. Never copy a reference app's hue: T3's indigo is T3's brand, and indigo or framework blue is the strongest generated-UI tell | T3 `oklch(0.488 0.217 264)` (its brand, not a default) |
+| Primary button | ink by default (near-black on light, off-white on dark); a brand hue only if the brief chose one | Perplexity, ChatGPT, Cursor, unslop dark rule |
 | Button mix | about 1 filled per 6; outline about 1/3, ghost about 2/5 | T3 33% outline, 38% ghost, 17% primary |
 | User bubble | soft neutral | T3 `#ebebed` / `#1e1e1e` |
-| Status | a word + an icon + a semantic hue used for nothing else, never the accent (needs-you is carried by position, weight, a count badge and an attention hue such as amber, so the accent stays free for the one action and focus); status pills at about 15% alpha, fills 8% light / 16% dark | T3; Beautiful UI |
+| Status | an icon + a semantic hue used for nothing else, never the accent; the word once (section header, or the row of an unsectioned list) (needs-you is carried by position, weight, a count badge and an attention hue such as amber, so the accent stays free for the one action and focus); status pills at about 15% alpha, fills 8% light / 16% dark | T3; Beautiful UI |
 | Direction (up/down) | colour plus sign or arrow; muted mid-dark hues, alpha ladder 100 / 65 / 9 / 5.5% | Perplexity `#016B1D` / `#A23544`, dark `rgb(83,158,85)` / `rgb(220,105,115)` |
 | Dark mode | true or near black, raised `#111`, white-alpha borders, not grey fills; off-white primary; inset highlight `inset 0 1px 0 rgba(255,255,255,.12)` | T3; unslop |
 | Contrast | compute it: primary text 7:1, secondary 4.6:1; let users scale contrast (50-200%) | T3 theme generator |

@@ -52,7 +52,7 @@ Imperative rules, each with the reason it exists. Anatomy and measured values fo
 37. **Rate sources and say why** (trusted publishers marked, a one-line reason on hover, "Rate this source").
 38. **Express uncertainty in words and order**, not false-precision percentages.
 39. **Phrase evidence in the user's own words** ("Fits what you described" / "Doesn't quite fit").
-40. **Label every number's state** (live, closed, estimate, calculated) and when, including numbers the AI quotes. An unlabelled stale number is a silent error.
+40. **Label every number's state that is not live and final** (closed, estimate, calculated, as of a past date), including numbers the AI quotes, once per frame rather than per number. An unlabelled stale number is a silent error; a "Live" label on every number is noise.
 41. **Compute in code, narrate with the model.** Deterministic tools do sums, filters and projections; the AI states the method and what it left out. This removes the main source of numeric hallucination.
 42. **Explain recommendations with the user's own maths** behind a verdict chip and ⓘ; pair a percentage with currency.
 43. **State constraint failures plainly** and offer the nearest feasible value as a chip. A silent relaxation destroys trust.
