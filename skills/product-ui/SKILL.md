@@ -1,12 +1,14 @@
 ---
 name: product-ui
-description: Design or build an application interface (web or desktop app, dashboard, internal tool, agent or AI product screen) so it feels clean and intuitive on the first try. Starts with a brief interview (what the screen is for, who uses it, the one decision, the real data) that writes a five-part brief before code, unless told to just build. Gives the decision order, measured defaults for layout, type, colour, radius, motion and keyboard (from T3 Code, Linear, ChatGPT, Claude, Perplexity, Cursor, Notion and others), playbooks for ten product categories, and a review checklist. Use when starting a new app screen or shell, redesigning one, deciding where buttons, menus, panels and states go, or reviewing an app UI for intuitiveness, or when asked for a design brief. For marketing or personal websites use website-design. For AI surfaces (composer, streaming, approvals, citations, agent status) also load ai-interaction-patterns. For component-level polish use the emil-* skills.
+description: Design or build an application interface (web or desktop app, dashboard, internal tool, agent or AI product screen) so it feels clean and intuitive on the first try. Starts with a brief interview (what the screen is for, who uses it, the one decision, the real data) that writes a five-part brief before code, unless told to just build. Gives the decision order, measured defaults for layout, type, colour, radius, motion and keyboard (from T3 Code, Linear, ChatGPT, Claude, Perplexity, Cursor, Notion and others), playbooks for ten product categories, and a review checklist. Use when asked to build, rework or redesign an app screen, page or shell ("rework the home screen"), deciding where buttons, menus, panels and states go, or reviewing an app UI for intuitiveness, or when asked for a design brief. For marketing or personal websites use website-design. For AI surfaces (composer, streaming, approvals, citations, agent status) also load ai-interaction-patterns. For component-level polish use the emil-* skills.
 license: MIT
 ---
 
 # Product UI
 
 Build app interfaces that feel obvious. The method comes from a teardown of T3 Code (live app plus source) and case studies of twenty AI-forward products, measured from their running CSS. It is written as decisions to make in order, with defaults for every decision nobody makes on purpose.
+
+**Start here.** For a new screen or a rework or redesign of one ("rework the X screen"), read [references/brief-interview.md](references/brief-interview.md) now and run that interview before anything else: no layouts, directions or mockups until its brief is approved. Skip it only on the fast path ("just build", or no one can answer) or for a change to one part of a screen.
 
 ## Rule zero: cut words; show, don't label
 
