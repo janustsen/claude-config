@@ -82,6 +82,7 @@ Full text with reasons, evidence and anti-patterns: [laws.md](../skills/product-
 For any app screen, write each decision down before code ([product-ui SKILL.md](../skills/product-ui/SKILL.md)):
 
 0. Fill in what the request left out (users, the one job, realistic records, the few fields the job needs).
+0. Brief first: an interview that looks up the facts, asks only the product decisions, and writes a five-part brief with no style words ([brief-interview.md](../skills/product-ui/references/brief-interview.md)). "Just build" skips to inferring it.
 1. Category and center of gravity.
 2. Scarce resource, core loop, one-sentence thesis.
 3. Shell: attention inbox, reading lane with its input, on-demand tools, sheets over the work.

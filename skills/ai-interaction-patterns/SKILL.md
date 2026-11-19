@@ -24,7 +24,7 @@ Legibility comes from position, ink, icons and one named button, not from senten
 
 Targets: at most 15 non-content words in the reading lane, zero facts said twice, no box around generated output. The method and evidence are in `product-ui` (rule zero and references/slop-vs-good.md).
 
-When the request is one line, first write the missing spec (`product-ui` decision step 0): who delegates what, which agent states exist right now, realistic records, and which few fields the human needs to decide.
+Start with the brief (`product-ui` decision step 0 and its references/brief-interview.md): look up the agents, their real runs and their states, then ask who delegates what, which decision the human makes, and which few fields that decision needs. Told to just build, infer the same from the category chapter.
 
 ## The universal state set
 

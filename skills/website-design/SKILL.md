@@ -26,6 +26,9 @@ Test: count the words on the first screen that are neither the claim, the produc
 
 ## Step 0: write the five-line brief before any code
 
+First settle the content with `product-ui`'s brief interview (references/brief-interview.md): who the visitor is and what they should do, the real product, copy and proof verbatim, what the page must never claim. The five lines below then decide the art direction; they are the one place a website brief carries style.
+
+
 1. **Concept**: the metaphor the whole site lives inside. A desktop OS with draggable windows (PostHog), a film strip (a portfolio), a farewell letter (Arc), an object in a dark studio (Teenage Engineering), or "the product itself" for tools.
 2. **World**: where the imagery comes from, ideally outside the product's category. A classical oil painting behind product windows (Cursor), sunlight through leaves (Dia), a desk on a mountain at dawn (Mercury), documentary photographs of coffee pickers.
 3. **Type move**: the one unusual type decision. Söhne at weight 300 (Stripe), Geist 400 at -0.06em (Vercel), a swash serif wordmark at about 400px (Dia), a 16px-only page (Paco, Emil).
