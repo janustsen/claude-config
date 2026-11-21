@@ -5,6 +5,7 @@ My public Claude configuration for an agent workflow coordinated through Firstma
 - `CLAUDE.md` sets the working style, model routing, verification, and delivery rules.
 - `skills/` contains diagnosing-bugs, domain-modeling, find-docs, grill-with-docs, grilling, humanizer, resolving-merge-conflicts, and wizard. Each includes its MIT license; source attribution is kept where supplied. The wizard template has fixes for quoted values, and merge-conflict guidance limits staging to the work being resolved.
 - `skills/` also contains three design skills: product-ui (app interfaces), ai-interaction-patterns (AI surfaces such as composers, streaming, approvals and citations) and website-design (distinctive websites). They come from teardowns of T3 Code, twenty AI-forward products and 41 websites, and they route to the emil-*, apple-design and animation skills for component craft. [docs/design-guide.md](docs/design-guide.md) is the readable front of all three.
+- `skills/ux-flows` covers whole jobs rather than screens: step budgets, the next action at every stop, confirmation, undo, errors and returning, for 14 standard jobs walked across 25 apps on desktop and iPhone. Its walk-the-job check is required by the product-ui review checklist for every UI change.
 - `hooks/` checks Bash commands against dangerous-command patterns and scans edited files with Gitleaks and Semgrep.
 - `settings.json` connects those hooks and lists the current plugins.
 

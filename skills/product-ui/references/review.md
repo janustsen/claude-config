@@ -29,6 +29,8 @@ Credit for sections 3-5: **heydamir/unslop** by Damir Sokolovsky (CC BY 4.0), **
 
 Each item must be true, checked on a screenshot or by driving the app.
 
+- [ ] Every UI change: each job it touches passes `ux-flows`' walk-the-job check ([../../ux-flows/references/walk-the-job.md](../../ux-flows/references/walk-the-job.md)): steps within budget, the next action named at every screen, one mistake undone, one error path walked.
+
 **Structure**
 - [ ] The first screen is the primary input (or a "what changed, what needs you" summary), not a dashboard of tiles or a greeting.
 - [ ] The main list is ordered by attention state, and background activity does not reorder it.
