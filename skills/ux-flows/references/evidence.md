@@ -8,6 +8,7 @@ What each rule in ux-flows rests on, how strong that is, what was dropped, and w
 |---|---|---|
 | Desktop walks | 25 apps × 14 jobs, walked in a signed-in browser where an account existed (synthetic items, created and deleted), otherwise from public demos, recordings and vendor procedures | 350 cells: 19 completed live jobs (ChatGPT 7, Notion 7, Claude 5), 23 partial live traces, 5 public demo, 12 recording, 266 documented, 25 without sufficient evidence. 33 retained screenshots |
 | iPhone | The same 25 apps and 14 jobs from public recordings and vendor documentation; no phone was operated | 350 rows: 18 recording, 214 documented, 11 documented limits, 32 capability only, 75 unknown; 108 action counts (55 bounded, 53 partial). 337 pairs still need a real-device walk |
+| Product proof | All 14 jobs walked live before and after fixes on one real CRM (Hayes), from named starts on seeded data | Dead ends 4 → 0; three corrections to budgets and rules, two questions left open (below) |
 | Owner corrections | Every design correction one product owner gave across about ten of their own products (CRMs, an internal ops hub, an analysis tool, a consumer app, agent tooling, mail triage), plus structured interview answers | 224 corrections, 96 interview answers, generalized into 23 rules; 12 were already in product-ui or the emil-* skills, 11 were not |
 
 Apps: Linear, Notion, Things 3, Todoist, Apple Reminders, Apple Notes, Superhuman, Gmail, Granola, ChatGPT, Claude, Perplexity, Cursor, Raycast, Arc, Figma, Attio, HubSpot, Stripe dashboard, Vercel dashboard, Slack, Notion Calendar, Airtable, Obsidian, Shopify admin.
@@ -42,6 +43,11 @@ Apps: Linear, Notion, Things 3, Todoist, Apple Reminders, Apple Notes, Superhuma
 | Escalate only genuine uncertainty (step-count table) | — | queue [corr 9 + 6]; not in prior skills | Strong (corrections) |
 | Route an interruption once, to who can finish it (J9) | Attio opens the comment itself [doc]; Figma quick reply from Activity [doc] | notify [corr 9 + 3]; not in prior skills | Medium |
 | Repair machine output before the reader sees it (J13) | — | repair [corr 6], one product | Weak; kept as a J13 note only |
+| Mixed-kind list rows lead with object and waiting action (next-action 8) | Hayes attention list: draft rows showed only the email subject, kind and recipient on a hover dot [live proof] | meaning [corr 17] | Medium |
+| Bulk action +1 for a chosen destination (J6) | Hayes bulk add to a list 5 vs 4; Things destination step (J2) [rec] | — | Medium |
+| Refused input stays typed; Esc restores (J3) | Hayes in-place phone edit: keeping the prior value visible would discard the typed text J8 keeps [live proof] | recover [corr 7] | Medium |
+| Undoing a removal restores its values (J7) | Hayes list entry holds stage, priority, dates; re-adding membership alone loses them [live proof] | undo [2 interviews] | Medium |
+| Undo reached inside the notice's lifetime (walk step 7) | Hayes 4s toast expired before a scripted walk reached Undo [live proof] | — | Medium; timing in product-ui |
 | Keep personal, shared and out-of-scope apart (J12) | Apple Notes collaborator recovery needs the owner's link [doc] | scope [corr 8 + 9] | Medium |
 
 ## Already covered elsewhere, pointed to instead of repeated
@@ -77,11 +83,13 @@ Each of these rested on a single documented source and is not a rule in the skil
 ## Gaps the study could not settle
 
 - **No live walk of a new account's first run.** Every first-run trace began in an existing signed-in account or a vendor procedure; signups were blocked by email verification or identity providers. The J1 budget is the product's own first useful result, not onboarding.
-- **No live error recovery or offline session.** The only live error was ChatGPT's stale search result opening to an access error. Offline behaviour is documented (Notion, HubSpot, Todoist), not walked.
+- **No live offline session.** Error recovery was walked live only in the product proof (refused input, empty create, unsent email kept) and in ChatGPT's stale search result. Offline behaviour is documented (Notion, HubSpot, Todoist), not walked.
 - **No delivered notification acted on.** 8 of 25 desktop apps had no evidence at all for J9; nothing was received and followed. The J9 budget comes from documentation and corrections.
 - **No handoff to another person or device.** Every handoff was a second view in the same account; Slack's recording is edited and cannot show propagation time.
 - **No human time.** No elapsed time was measured anywhere. Budgets are steps and decisions.
 - **Gesture discoverability.** Recordings show gestures used by people who already know them; whether a newcomer finds them is unknown.
 - **One universal step limit.** The data does not support one; it supports a budget per job from a named start.
 - **Phone, on a real device.** 337 of 350 iPhone app-job pairs still need a real-device walk; phone counts are lower bounds from vendor media.
+- **Handing over versus adding.** Assigning work from a multi-assignee picker added the new person beside the author instead of replacing them (Hayes). Whether a handoff replaces or adds is a product call; one product is not enough for a rule.
+- **Enter in a find-or-ask box.** When one input both finds a record and asks the AI, the J1 and J5 budgets cannot say what Enter does when the text exactly names one record (Hayes asks; the arrow then Enter opens). Needs products with the same box (Raycast, Arc, Notion search-or-ask).
 - **Search index lag after deletion.** Observed once (ChatGPT), duration unmeasured.
