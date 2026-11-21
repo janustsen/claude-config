@@ -17,7 +17,7 @@ The rules come from three bodies of evidence, weighted in this order:
 | [doc] | The vendor's published procedure (all 25 apps) | The route exists; counts are a reading of the procedure |
 | [corr N] | N corrections from an owner's design reviews of their own products (224 corrections, 96 interview answers, about ten products) | What a real user objected to, repeatedly |
 
-A rule supported only by one documented source was dropped. Counts on [doc] are the procedure, not the friction. No human task time was measured anywhere, so this skill budgets steps and decisions, not seconds. The evidence register, with what was dropped and why, is in [references/evidence.md](references/evidence.md).
+Counts on [doc] are the procedure, not the friction. No human task time was measured anywhere, so this skill budgets steps and decisions, not seconds. The evidence register, with what was dropped and why, is in [references/evidence.md](references/evidence.md).
 
 ## Rule zero: count the walk, not the screen
 
@@ -62,7 +62,7 @@ Write each decision down (a line or two) before building or changing a flow.
 
 ## Step count
 
-The budgets below are the best route measured for that job, from a stated start. They are budgets for the visible route a newcomer takes, not for a shortcut. The study did not support one universal click limit; it supports a budget per job from a named start.
+The budgets below are the best route measured for each job: the visible route a newcomer takes from a stated start, not a shortcut. The study supports a budget per job, not one universal click limit.
 
 Where steps come from, and the cut for each:
 
@@ -91,7 +91,7 @@ At every stop the user should be able to point at the next action in under three
 5. **After a step fails, the next action is the fix.** A field error names the field (Linear rejected an empty title and named it) [demo]; a missing connection opens its setup there and returns [corr 7]. Generic retry that fails the same way is a dead end [corr].
 6. **Gestures and shortcuts are accelerators, never the only route.** Things' pull-down search and Superhuman's directional gestures are fast, and neither recording shows a newcomer discovering them [rec]. Keep a visible route; measure the gesture separately.
 7. **The landing view answers what needs the user next.** Due-soon and waiting-on-you work first, the full inventory one destination away; replies waiting longest on top of one merged list [corr 9, 5 interviews; product-ui shell-and-navigation §1].
-8. **Name things in the user's words, with enough context to act.** Cover the rest of the page: can the user say who the row is about, what happened, and what the button will do? Machine IDs, internal concept names and unexplained app vocabulary make the next action unclear even when it is visible [corr 17].
+8. **Name things in the user's words, with enough context to act.** Cover the rest of the page: can the user say who the row is about, what happened, and what the button will do? In a list that mixes kinds of work, a row whose title does not name its object and the action it waits for gets a short lead that does ("Draft to <person>: <subject>"). Machine IDs, internal concept names and unexplained app vocabulary make the next action unclear even when it is visible [corr 17].
 9. **Running work says what it is doing.** Which item, which stage, waiting or failed, so the user knows whether the next action is theirs [corr 7; ai-interaction-patterns progress patterns].
 
 ## The 14 jobs at a glance
@@ -105,7 +105,7 @@ Budgets count deliberate steps from the start given. "Best measured" is the lowe
 | J3 Edit in place | The value visible | 1 for a toggle; 3 for text (click, type, commit) | Things checklist 1 [rec]; Claude title 3 [part] | On the value itself |
 | J4 Organize | The item visible | 2 (menu, verb) or one drag | ChatGPT, Claude pin 2 [live]; Notion reorder 3 by keyboard [live] | The item's menu or drag handle |
 | J5 Find | Anywhere | 3 (open search, type, choose); 2 for a recent item | ChatGPT 3 by search, 2 by Recents [live]; Apple Notes tag 1 [rec] | One search entry, always in the same place |
-| J6 Bulk action | List visible | Select + 1 per extra item + 1 action | Notion 4 for two blocks [live]; Things 4 for three tasks [rec] | A selection bar that names the count |
+| J6 Bulk action | List visible | Select + 1 per extra item + 1 action; +1 to pick a destination | Notion 4 for two blocks [live]; Things 4 for three tasks [rec] | A selection bar that names the count |
 | J7 Undo | Just after the mistake | 1; 2 later via the inverse verb | Notion ⌘Z 1, Claude 1 with menu open, ChatGPT 2 [live] | The notice, ⌘Z, or the verb's own slot |
 | J8 Error or offline | Mid-job | 0 to keep input; 1 to the fix | Linear names the empty field [demo] | At the failed item |
 | J9 Notification or inbox | The notification | 1 to the exact object with its next action | No live walk (gap) | On the notification and the object |
@@ -128,17 +128,17 @@ Each playbook: budget, where the next action lives, confirmation and undo, error
 - Screen rules: product-ui shell-and-navigation §6 and laws L13.
 
 ### J2 Quick add
-- **Budget.** 1-2 from the open list or object (Notion 1; ChatGPT, Claude 2 [live]). 3 when the user picks a destination other than the current one (Things: drag Magic Plus to Inbox, type, Save [rec]). Routes of 7-8 steps (HubSpot, Stripe, Shopify [doc]) are navigation and a form in front of the add: put the add on the list instead.
+- **Budget.** 1-2 from the open list or object (Notion 1; ChatGPT, Claude 2 [live]). 3 when the user picks a destination other than the current one (Things: drag Magic Plus to Inbox, type, Save [rec]). Routes of 7-8 steps (HubSpot, Stripe, Shopify [doc]) put navigation and a form before the add.
 - **Next action.** Inline at the end of the list or in the composer, focused, with defaults taken from the current view (Linear [demo]). Enter commits and leaves the user ready to type the next one (Apple Reminders, Things [doc]).
 - **Confirm and undo.** The new item appears where it was added, and the user stays where they were (Things returns to the project and the Inbox count shows where it went [rec]). Parsed values show as chips beside the text, and clicking a misread word turns it back into text (Todoist [rec + doc]).
 - **Error.** An empty required field is named at the field and the composer stays open with the input (Linear [demo]).
 - **Watch for.** A quick add with a heavy side effect (Granola's New note starts audio capture [doc]). Name the effect on the control.
 
 ### J3 Edit in place
-- **Budget.** 1 for a toggle or checkbox (Things checklist [rec]). 3 for text: click the value, type, Enter or blur (Claude title [part]). A menu, a dialog and Save is 4 (ChatGPT rename [live]); a separate editor page is 5-7 (Stripe, Shopify, HubSpot, Vercel [doc]). Cut both.
+- **Budget.** 1 for a toggle or checkbox (Things checklist [rec]). 3 for text: click the value, type, Enter or blur (Claude title [part]). Cut a menu-and-dialog rename (4, ChatGPT [live]) and a separate editor page (5-7 [doc]).
 - **Next action.** On the value itself. Selecting the object and editing its text look different (Figma's layer outline vs text caret [rec]). A small edit stays in its list; a floating editor that covers the context was a repeated correction [corr 18].
 - **Confirm and undo.** The changed value is the confirmation; no Save button where saving is automatic (Notion [live]; Linear, Apple Notes [doc]). Esc keeps the edit and closes; ⌘Z reverts. When the edit changes something else (Claude regenerates the answer below [live], an edit propagates to every published use in Shopify [doc]), show that consequence before or as it happens.
-- **Error.** Invalid input is refused at the field with the reason; the prior value stays visible until the new one is valid.
+- **Error.** Invalid input is refused at the field with the reason under it; the typed text stays in the field (J8), and Esc brings the prior value back.
 
 ### J4 Move, reorder or organize
 - **Budget.** 2: open the item's menu, choose the verb (ChatGPT, Claude Pin [live]). Or one drag between visible groups (Things, Apple Reminders [rec]); count the scroll if both groups are not on screen. A single key from a selected item is the accelerator (Linear, Superhuman L to label [doc]). Slack's 10-step private section and HubSpot's 8-step route [doc] are what to avoid.
@@ -150,28 +150,27 @@ Each playbook: budget, where the next action lives, confirmation and undo, error
 - **Budget.** 3: open search, type, choose (ChatGPT [live]; Things on iPhone [rec]). 2 for something recent (Recents, a pinned list: ChatGPT [live]). 1 for a filter the user already has (Apple Notes tag [rec]). The job ends when the item is open, not at the result list: count the reopen.
 - **Next action.** One search entry, in the same place on every screen, opened by one key, with results as the user types (Things, Figma, Shopify, Obsidian [doc]). A detail pane beside results lets the user check before opening (Raycast [doc]). The active filter is stated above the results (Apple Notes [rec]).
 - **Confirm.** The opened item is the one asked for, scrolled to the match.
-- **Error and empty.** No results offers the broader query or clears the filter (product-ui states). Say when recent items may not be indexed yet (Figma [doc]). Never offer a result for something deleted: ChatGPT kept a deleted chat in search and opening it gave an access error [live]; Claude's search showed a searching status, then five unrelated results and not the chat [part].
+- **Error and empty.** No results offers the broader query or clears the filter (product-ui states). Say when recent items may not be indexed yet (Figma [doc]). Never offer a result for something deleted: ChatGPT kept a deleted chat in search and opening it gave an access error [live].
 - **Watch for.** Search scoped silently to the current view (Airtable) or excluding some folders (Gmail) [doc]. Show the scope.
 
 ### J6 Bulk action
-- **Budget.** Selecting the first item + 1 per extra item + 1 action. Notion duplicated two blocks in 4 keystrokes [live]; Things moved three tasks in 4 [rec]; Reminders three items in 3 [rec]. HubSpot's 9-step bulk move [doc] is navigation, not selection.
+- **Budget.** Selecting the first item + 1 per extra item + 1 action, +1 when the user picks the destination (a list, a folder, an owner), as J2 allows. Notion duplicated two blocks in 4 keystrokes [live]; Things moved three tasks in 4 [rec]; Reminders three items in 3 [rec]. HubSpot's 9-step bulk move [doc] is navigation, not selection.
 - **Next action.** The same verb, key or drag as for one item, applied to the selection (Linear, Reminders, Todoist [doc, rec]); a bar above the selection with the common actions (Todoist, Shopify [doc]).
 - **Confirm and undo.** Show the scope before committing: the selected items highlighted and the floating stack showing how many move (Things [rec]), the count in the button ("Move 3 tasks"). After, the selection stays highlighted where it landed with order preserved (Reminders [rec]). One bulk operation is one undo.
 - **Watch for.** An implicit set with no preview (Select all, a time window, everything in a view) and bulk deletes that cannot be recovered (Superhuman, Raycast, Slack, Perplexity [doc]). Implicit scope needs the count on the confirm and an undo.
 
 ### J7 Undo a mistake
-- **Budget.** 1 right after the mistake: ⌘Z (Notion [live]) or the Undo in the notice (Gmail Sent banner reopens the filled draft [rec]). 2 later: the inverse verb in the menu the verb came from (ChatGPT [live]). Recovering a deletion: at most 3 from the deletion notice, which names where the item went (Apple Notes Recently Deleted [rec]).
+- **Budget.** 1 right after the mistake: ⌘Z (Notion [live]) or the Undo in the notice (Gmail Sent banner reopens the filled draft [rec]). 2 later: the inverse verb in the menu the verb came from (ChatGPT [live]). A deletion: at most 3 from its notice, which names where the item went (Apple Notes Recently Deleted [rec]).
 - **Next action.** The undo appears where the mistake happened, for long enough to read (product-ui: 5s, ⌘Z). Later recovery is findable from the same object or its list, not only from settings.
 - **Confirm.** The restored state is the exact original, checked against neighbours and other views (Notion's reorder [live]). The item returns to where it was: Apple Reminders restores a deleted reminder to the default list, not its own [doc].
 - **Dead ends seen.** The reverse control hidden with the item (a completed reminder vanishes; reversing it takes View → Show Completed → click, 3 [rec]); short, unextendable windows (Superhuman 10s [doc]); recovery through a 5-step Trash route (Gmail [doc]); no undo at all (Perplexity sessions, a Vercel rename [doc]).
-- **Rule.** Every lifecycle verb has its inverse; every intended multi-record change (import, bulk edit) has one undo that restores created records and original values [2 interviews].
+- **Rule.** Every lifecycle verb has its inverse, and undoing a removal puts the item back with its own values (a list entry's fields, not bare membership); every intended multi-record change (import, bulk edit) has one undo that restores created records and original values [2 interviews].
 
 ### J8 Hit an error or go offline
 - **Budget.** 0 steps to keep the user's input; 1 to reach the fix from where the error appears. Recovery that sends the user through a long external checklist (Raycast 9 into system settings, Attio 13, Shopify 7 [doc]) is a design failure to fix in the product.
 - **Next action.** The error sits on the failed object with its recovery beside it: Superhuman's red Send failed with Edit or Discard [doc]; Slack's Restart under the error [doc]; Linear's "Title required" at the field [demo]. A missing dependency (a connection, a permission) opens its setup there and returns to the job [corr 7].
 - **Offline.** Work done offline waits in a named, inspectable state and completes on reconnect (Gmail's Outbox, Superhuman [doc]); unsynced changes show a cue and are never discarded silently (Figma, Todoist [doc]). State rules: product-ui states-copy-safety §1.
 - **Failed sources.** When part of a job fails, do the rest, say exactly what is missing, and do not present a thin result as complete [corr 12].
-- **Gap.** No live offline session or error recovery was walked; these patterns are documented.
 
 ### J9 Act on a notification or clear an inbox
 - **Budget.** 1 from the notification to the exact object with its next action ready (Attio opens the comment itself; Granola's notice opens the note [doc]). 1 key or swipe to clear an item from an inbox (Things, Linear [doc]; Gmail, Superhuman swipes on iPhone [doc]).

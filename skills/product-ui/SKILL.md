@@ -21,7 +21,7 @@ What separates Perplexity, Granola, ChatGPT, Claude, Linear and T3 Code from gen
 | Perplexity answer | about 15 |
 | A generated agent inbox built from the old version of this skill | 64, plus 36 in its sidebar, with 8 facts shown twice |
 
-**Targets:** at most 15 non-content words in the reading lane, zero facts said twice. Navigation and settings labels are the content of those surfaces and do not count against the lane, but keep them to one word each. Whole screens with navigation measure 30-60 on the reference apps (Perplexity 53, T3 Code 54 with its sidebar). Count on the screenshot before calling a screen done.
+**Targets:** at most 15 non-content words in the reading lane, zero facts said twice. Navigation and settings labels are the content of those surfaces and do not count against the lane, but keep them to one word each. In a list that mixes kinds of work, a short lead naming a row's object and the action it waits for ("Draft to <person>:") is content, not a label. Whole screens with navigation measure 30-60 on the reference apps (Perplexity 53, T3 Code 54 with its sidebar). Count on the screenshot before calling a screen done.
 
 Decoration is not text. Avatars, logos, favicons, kind icons, imagery and colour carry identity at a glance and *replace* words: keep them, add them where a word can go. A screen with its words cut should look richer, not emptier.
 
