@@ -9,7 +9,7 @@ Every list, panel and AI surface defines all of these. A state nobody designed i
 | State | What it shows | Rule |
 |---|---|---|
 | Empty (zero) | A question plus the primary input, or one muted line with the first action | No illustrations, no fake suggestions in a returning-user tool. "No archived threads." "Nothing needs you." |
-| No results | One muted line and "Clear filters" | Distinct from zero: the user caused it, so offer the undo |
+| No results | One muted line and the one next action that fits the job: "Clear filters", "Broaden your search", "New chat" | Distinct from zero and from loading: the user caused it, so offer the way on. A blank results area reads as still searching (Shortcuts) |
 | Loading | A skeleton in the final shape plus a text label, after 400ms | Avatar circle, two bars of varied width, right-side meta bars, under "Loading pull requests…"; pulse 2.4s stepped |
 | Partial or streaming | Reserved final footprint; finished blocks fade in | Min-height on streaming answers; hidden action rows stay mounted with `pointer-events: none` |
 | Busy action | The button changes its verb and disables | "Importing…", reduced opacity, no spinner in the button |
@@ -30,7 +30,8 @@ Every list, panel and AI surface defines all of these. A state nobody designed i
 5. Error titles use one prefix consistently ("Could not X"), then the raw message.
 6. Surface provider, quota and auth problems as banners with the fix action, at the input they block: "Claude provider status: Timed out after 25s while checking account status. [Refresh] ✕".
 7. Never let a skeleton or blank region stand in for content that failed to load; replace it with the error.
-8. Safety stops (health, money, legal) are unmissable and actionable: fire on the first red-flag message, make phone numbers one-tap `tel:` links, end visibly without covering the instruction.
+8. Search answers in two beats: the typed query shows at once, then the verdict (results or no results). Time them separately; the verdict is what the user waits for (Granola showed both by 263 ms, ChatGPT's verdict took 1.2-1.7 s, Gmail gave none until Return).
+9. Safety stops (health, money, legal) are unmissable and actionable: fire on the first red-flag message, make phone numbers one-tap `tel:` links, end visibly without covering the instruction.
 
 ## 2. Copy
 

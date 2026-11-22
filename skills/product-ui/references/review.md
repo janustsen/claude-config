@@ -53,6 +53,8 @@ Each item must be true, checked on a screenshot or by driving the app.
 - [ ] Every error names the cause and the fix, where it happened. Unavailable options say how to enable them.
 - [ ] Long processes show a receipt, a summary sentence with counts and typed rows; failures stay expanded; stopped work says it stopped.
 - [ ] Every reversible action has a 5s ⌘Z undo; only irreversible ones confirm.
+- [ ] Search: timestamp the first visible query and the first results or empty verdict, once while typing and once after an explicit submit. An unlikely query ends in a clear verdict with one next action (no matches, a suggestion or a different action), not a blank that reads as loading.
+- [ ] Edits and removals: name the view that proves persistence. After a delete or move, check the source view and the destination, including search, which can lag.
 - [ ] Destructive dialogs: question title naming the object, consequence body, Cancel focused, red confirm last.
 
 **Craft**
