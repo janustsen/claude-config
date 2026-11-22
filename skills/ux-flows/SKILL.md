@@ -8,13 +8,13 @@ license: MIT
 
 product-ui decides what a screen looks like and where its controls sit. This skill decides how a job goes from the moment the user wants something to the moment it is done and they can trust it: the steps, the next action at each stop, the confirmation, the undo, the failure and the return. A screen can pass every visual review and still fail here. The two failures people name first are **too many steps** and **unclear what to do next**, so this skill goes deepest on those.
 
-The rules come from three bodies of evidence, weighted in this order:
+The rules rest on app evidence, ranked strongest first (a walk on desktop or a real phone beats a recording, which beats documentation), and on owner corrections, counted separately:
 
 | Tag | Evidence | What it can prove |
 |---|---|---|
 | [live] | Completed job walked in the signed-in app (Notion, ChatGPT, Claude: 19 jobs) | Step counts from a named start, feedback, undo |
-| [rec] | Public recording or demo, frames sampled (Things, Linear, Apple Notes and Reminders, Obsidian, Attio, Airtable, Figma, Slack, Gmail) | The sequence shown; not discoverability or timing |
 | [device] | Job walked on a real iPhone (8 of 24 native study apps installed; 4 yielded multi-step walks) | Phone step counts and landings from a named start |
+| [rec] | Public recording or demo, frames sampled (Things, Linear, Apple Notes and Reminders, Obsidian, Attio, Airtable, Figma, Slack, Gmail) | The sequence shown; not discoverability or timing |
 | [doc] | The vendor's published procedure (all 25 apps) | The route exists; counts are a reading of the procedure |
 | [corr N] | N corrections from an owner's design reviews of their own products (224 corrections, 96 interview answers, about ten products) | What a real user objected to, repeatedly |
 

@@ -14,7 +14,7 @@ What each rule in ux-flows rests on, how strong that is, what was dropped, and w
 
 Apps: Linear, Notion, Things 3, Todoist, Apple Reminders, Apple Notes, Superhuman, Gmail, Granola, ChatGPT, Claude, Perplexity, Cursor, Raycast, Arc, Figma, Attio, HubSpot, Stripe dashboard, Vercel dashboard, Slack, Notion Calendar, Airtable, Obsidian, Shopify admin.
 
-**Weighting.** Live walk over recording or demo over documentation. A count on documentation is a reading of the vendor's procedure; it proves the route exists, not that people find it. A rule supported by a single documented source was dropped. Corrections count occasions in reviews, not usage frequency; a rule needed corrections across more than one product, or corrections plus app evidence, to be kept as a general rule. Product-specific choices (which page a given product lands on, a given scoring scale) were generalized or left out.
+**Weighting.** Live walk (desktop or real phone) over recording or demo over documentation. A count on documentation is a reading of the vendor's procedure; it proves the route exists, not that people find it. A rule supported by a single documented source was dropped. Corrections count occasions in reviews, not usage frequency; a rule needed corrections across more than one product, or corrections plus app evidence, to be kept as a general rule. Product-specific choices (which page a given product lands on, a given scoring scale) were generalized or left out.
 
 ## The rules and what they rest on
 
@@ -55,7 +55,7 @@ Apps: Linear, Notion, Things 3, Todoist, Apple Reminders, Apple Notes, Superhuma
 | Recovery is a labelled verb naming its destination (J7) | Apple Notes Recently Deleted: the only recovery cue on the open note was a folder icon [device] | recover [corr 7] | Medium |
 | Predictable landing after a delete (next-action 4) | Apple Notes: deleting the open note exposed a different note, twice; the list took Back [device] | — | Medium |
 | Saved and back-where-I-started are separate finishes (walk step 2) | Apple Notes: checkmark ended editing in place, Back returned to the list; Back alone also saved [device] | — | Medium |
-| Count a step only at a verified object and destination landmark (walk step 3) | Spotlight's Reminders hit opened a system privacy list; after a Notes bulk move the source still showed both titles, the destination proved the move [device] | trust [corr 12] | Medium |
+| Every action counts; arrival needs the object and a destination landmark (walk step 3) | Spotlight's Reminders hit opened a system privacy list; after a Notes bulk move the source still showed both titles, the destination proved the move [device] | trust [corr 12] | Medium |
 | Keep personal, shared and out-of-scope apart (J12) | Apple Notes collaborator recovery needs the owner's link [doc] | scope [corr 8 + 9] | Medium |
 
 ## Already covered elsewhere, pointed to instead of repeated
