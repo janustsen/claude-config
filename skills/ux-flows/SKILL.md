@@ -14,6 +14,7 @@ The rules come from three bodies of evidence, weighted in this order:
 |---|---|---|
 | [live] | Completed job walked in the signed-in app (Notion, ChatGPT, Claude: 19 jobs) | Step counts from a named start, feedback, undo |
 | [rec] | Public recording or demo, frames sampled (Things, Linear, Apple Notes and Reminders, Obsidian, Attio, Airtable, Figma, Slack, Gmail) | The sequence shown; not discoverability or timing |
+| [device] | Job walked on a real iPhone (8 of 24 native study apps installed; 4 yielded multi-step walks) | Phone step counts and landings from a named start |
 | [doc] | The vendor's published procedure (all 25 apps) | The route exists; counts are a reading of the procedure |
 | [corr N] | N corrections from an owner's design reviews of their own products (224 corrections, 96 interview answers, about ten products) | What a real user objected to, repeatedly |
 
@@ -87,7 +88,7 @@ At every stop the user should be able to point at the next action in under three
 1. **One next action per stop, visible, named by its verb.** Not behind hover (a collapse control that appeared only on hover was a correction) [corr 18], not one of several equal-weight links, not below the fold (the primary action outside the first view was corrected twice) [corr 2].
 2. **The empty state names the action.** Obsidian's empty canvas tells the user where to drag or double-click [rec]. One line plus the action (product-ui states-copy-safety §1).
 3. **The plain path is not buried under the promoted one.** Attio's onboarding offers manual entry below identity-provider buttons and customer logos: the path exists and is hard to find [rec]. If a newcomer must hunt, it is a dead end.
-4. **After success, the user lands where the next job starts.** Things returns to the original project after capturing to Inbox, and the Inbox count shows where the task went [rec]. ChatGPT moved a pinned chat into a named Pinned section [live]. The new or changed item is visible and selected; no "Success!" page with nothing to do.
+4. **After success, the user lands where the next job starts.** Things returns to the original project after capturing to Inbox, and the Inbox count shows where the task went [rec]. ChatGPT moved a pinned chat into a named Pinned section [live]. The new or changed item is visible and selected; no "Success!" page with nothing to do. After a delete, land on the list, or name the item now shown before offering another destructive action; silently exposing a different item where the deleted one was is a dead end [device].
 5. **After a step fails, the next action is the fix.** A field error names the field (Linear rejected an empty title and named it) [demo]; a missing connection opens its setup there and returns [corr 7]. Generic retry that fails the same way is a dead end [corr].
 6. **Gestures and shortcuts are accelerators, never the only route.** Things' pull-down search and Superhuman's directional gestures are fast, and neither recording shows a newcomer discovering them [rec]. Keep a visible route; measure the gesture separately.
 7. **The landing view answers what needs the user next.** Due-soon and waiting-on-you work first, the full inventory one destination away; replies waiting longest on top of one merged list [corr 9, 5 interviews; product-ui shell-and-navigation §1].
@@ -148,20 +149,20 @@ Each playbook: budget, where the next action lives, confirmation and undo, error
 
 ### J5 Find it later
 - **Budget.** 3: open search, type, choose (ChatGPT [live]; Things on iPhone [rec]). 2 for something recent (Recents, a pinned list: ChatGPT [live]). 1 for a filter the user already has (Apple Notes tag [rec]). The job ends when the item is open, not at the result list: count the reopen.
-- **Next action.** One search entry, in the same place on every screen, opened by one key, with results as the user types (Things, Figma, Shopify, Obsidian [doc]). A detail pane beside results lets the user check before opening (Raycast [doc]). The active filter is stated above the results (Apple Notes [rec]).
-- **Confirm.** The opened item is the one asked for, scrolled to the match.
+- **Next action.** One search entry, in the same place on every screen, opened by one key, with ordinary results as the user types (Things, Figma, Shopify, Obsidian [doc]); asking the AI or widening the scope is a separate choice beside them, not a command the user must pick before any result appears [device]. A detail pane beside results lets the user check before opening (Raycast [doc]). The active filter is stated above the results (Apple Notes [rec]).
+- **Confirm.** The opened item is the one asked for, scrolled to the match. Leaving and returning (another app, the lock screen) restores the query and its results, including a no-results state [device].
 - **Error and empty.** No results offers the broader query or clears the filter (product-ui states). Say when recent items may not be indexed yet (Figma [doc]). Never offer a result for something deleted: ChatGPT kept a deleted chat in search and opening it gave an access error [live].
 - **Watch for.** Search scoped silently to the current view (Airtable) or excluding some folders (Gmail) [doc]. Show the scope.
 
 ### J6 Bulk action
 - **Budget.** Selecting the first item + 1 per extra item + 1 action, +1 when the user picks the destination (a list, a folder, an owner), as J2 allows. Notion duplicated two blocks in 4 keystrokes [live]; Things moved three tasks in 4 [rec]; Reminders three items in 3 [rec]. HubSpot's 9-step bulk move [doc] is navigation, not selection.
 - **Next action.** The same verb, key or drag as for one item, applied to the selection (Linear, Reminders, Todoist [doc, rec]); a bar above the selection with the common actions (Todoist, Shopify [doc]).
-- **Confirm and undo.** Show the scope before committing: the selected items highlighted and the floating stack showing how many move (Things [rec]), the count in the button ("Move 3 tasks"). After, the selection stays highlighted where it landed with order preserved (Reminders [rec]). One bulk operation is one undo.
+- **Confirm and undo.** Show the scope before committing: the selected items highlighted and the floating stack showing how many move (Things [rec]), the count in the button ("Move 3 tasks") and again wherever the destination is picked, so scope and target are checked together [device]. After, the selection stays highlighted where it landed with order preserved (Reminders [rec]). One bulk operation is one undo.
 - **Watch for.** An implicit set with no preview (Select all, a time window, everything in a view) and bulk deletes that cannot be recovered (Superhuman, Raycast, Slack, Perplexity [doc]). Implicit scope needs the count on the confirm and an undo.
 
 ### J7 Undo a mistake
 - **Budget.** 1 right after the mistake: ⌘Z (Notion [live]) or the Undo in the notice (Gmail Sent banner reopens the filled draft [rec]). 2 later: the inverse verb in the menu the verb came from (ChatGPT [live]). A deletion: at most 3 from its notice, which names where the item went (Apple Notes Recently Deleted [rec]).
-- **Next action.** The undo appears where the mistake happened, for long enough to read (product-ui: 5s, ⌘Z). Later recovery is findable from the same object or its list, not only from settings.
+- **Next action.** The undo appears where the mistake happened, for long enough to read (product-ui: 5s, ⌘Z). Later recovery is findable from the same object or its list, not only from settings, and is a labelled verb (Recover, Restore), not an icon to interpret, that names where the item will go before it commits [device].
 - **Confirm.** The restored state is the exact original, checked against neighbours and other views (Notion's reorder [live]). The item returns to where it was: Apple Reminders restores a deleted reminder to the default list, not its own [doc].
 - **Dead ends seen.** The reverse control hidden with the item (a completed reminder vanishes; reversing it takes View → Show Completed → click, 3 [rec]); short, unextendable windows (Superhuman 10s [doc]); recovery through a 5-step Trash route (Gmail [doc]); no undo at all (Perplexity sessions, a Vercel rename [doc]).
 - **Rule.** Every lifecycle verb has its inverse, and undoing a removal puts the item back with its own values (a list entry's fields, not bare membership); every intended multi-record change (import, bulk edit) has one undo that restores created records and original values [2 interviews].
@@ -223,7 +224,7 @@ The jobs and budgets are the same; what changes is where the next action sits an
 7. **The phone has fewer features, so say where the rest is.** Design editing, admin settings, some searches and integrations are desktop-only in Figma, Notion, Notion Calendar and Granola [doc limits]. An honest read-only view with a route to the desktop beats a dead end.
 8. **Interruptions decide what survives.** Lock, background and calls: walk J14 by locking the phone mid-edit, not by switching tabs.
 
-None of the phone evidence is a real-device walk: 18 rows are vendor recordings, the rest documentation. Treat phone counts as lower bounds.
+One real-device pass walked 4 apps in multi-step jobs ([device]; only 8 of the 24 native study apps were installed). The rest of the phone evidence is 18 vendor recordings and documentation. Treat phone counts as lower bounds.
 
 ## Which skill does what
 

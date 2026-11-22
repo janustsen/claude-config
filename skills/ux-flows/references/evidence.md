@@ -8,6 +8,7 @@ What each rule in ux-flows rests on, how strong that is, what was dropped, and w
 |---|---|---|
 | Desktop walks | 25 apps × 14 jobs, walked in a signed-in browser where an account existed (synthetic items, created and deleted), otherwise from public demos, recordings and vendor procedures | 350 cells: 19 completed live jobs (ChatGPT 7, Notion 7, Claude 5), 23 partial live traces, 5 public demo, 12 recording, 266 documented, 25 without sufficient evidence. 33 retained screenshots |
 | iPhone | The same 25 apps and 14 jobs from public recordings and vendor documentation; no phone was operated | 350 rows: 18 recording, 214 documented, 11 documented limits, 32 capability only, 75 unknown; 108 action counts (55 bounded, 53 partial). 337 pairs still need a real-device walk |
+| iPhone, real device | One pass on a real iPhone through iPhone Mirroring, owned test notes only, all removed afterwards (firstmate `data/ux-phone-device/report.md`, 2026-11-21) | 8 of the 24 native study apps were installed; 4 yielded multi-step walks (Notion, Apple Notes, Granola in part, Slack in part); Gmail and ChatGPT landing only; Reminders and Claude never reached a verified app screen. Seven lessons, below |
 | Product proof | All 14 jobs walked live before and after fixes on one real CRM (Hayes), from named starts on seeded data | Dead ends 4 → 0; three corrections to budgets and rules, two questions left open (below) |
 | Owner corrections | Every design correction one product owner gave across about ten of their own products (CRMs, an internal ops hub, an analysis tool, a consumer app, agent tooling, mail triage), plus structured interview answers | 224 corrections, 96 interview answers, generalized into 23 rules; 12 were already in product-ui or the emil-* skills, 11 were not |
 
@@ -48,6 +49,13 @@ Apps: Linear, Notion, Things 3, Todoist, Apple Reminders, Apple Notes, Superhuma
 | Refused input stays typed; Esc restores (J3) | Hayes in-place phone edit: keeping the prior value visible would discard the typed text J8 keeps [live proof] | recover [corr 7] | Medium |
 | Undoing a removal restores its values (J7) | Hayes list entry holds stage, priority, dates; re-adding membership alone loses them [live proof] | undo [2 interviews] | Medium |
 | Undo reached inside the notice's lifetime (walk step 7) | Hayes 4s toast expired before a scripted walk reached Undo [live proof] | — | Medium; timing in product-ui |
+| Ordinary results without a second command (J5) | Notion and Granola: magnifier, type, results (2); Slack: tab, field, query, then a workspace-or-AI choice (4) [device] | — | Medium |
+| Query and no-results state survive leaving (J5) | Notion restored populated results; Granola restored No results [device] | resume [corr 11 + 5] | Medium |
+| Count shown wherever the destination is picked (J6) | Apple Notes "2 Selected" in select mode and "2 Notes" in the folder picker [device] | — | Medium |
+| Recovery is a labelled verb naming its destination (J7) | Apple Notes Recently Deleted: the only recovery cue on the open note was a folder icon [device] | recover [corr 7] | Medium |
+| Predictable landing after a delete (next-action 4) | Apple Notes: deleting the open note exposed a different note, twice; the list took Back [device] | — | Medium |
+| Saved and back-where-I-started are separate finishes (walk step 2) | Apple Notes: checkmark ended editing in place, Back returned to the list; Back alone also saved [device] | — | Medium |
+| Count a step only at a verified object and destination landmark (walk step 3) | Spotlight's Reminders hit opened a system privacy list; after a Notes bulk move the source still showed both titles, the destination proved the move [device] | trust [corr 12] | Medium |
 | Keep personal, shared and out-of-scope apart (J12) | Apple Notes collaborator recovery needs the owner's link [doc] | scope [corr 8 + 9] | Medium |
 
 ## Already covered elsewhere, pointed to instead of repeated
@@ -89,7 +97,7 @@ Each of these rested on a single documented source and is not a rule in the skil
 - **No human time.** No elapsed time was measured anywhere. Budgets are steps and decisions.
 - **Gesture discoverability.** Recordings show gestures used by people who already know them; whether a newcomer finds them is unknown.
 - **One universal step limit.** The data does not support one; it supports a budget per job from a named start.
-- **Phone, on a real device.** 337 of 350 iPhone app-job pairs still need a real-device walk; phone counts are lower bounds from vendor media.
+- **Phone, on a real device.** One real-device pass found only 8 of the 24 native study apps installed and got multi-step walks from 4, so the [device] rules rest on a handful of apps and mostly on one (Apple Notes). The queue still holds 337 outstanding iPhone jobs; other phone counts are lower bounds from vendor media.
 - **Handing over versus adding.** Assigning work from a multi-assignee picker added the new person beside the author instead of replacing them (Hayes). Whether a handoff replaces or adds is a product call; one product is not enough for a rule.
 - **Enter in a find-or-ask box.** When one input both finds a record and asks the AI, the J1 and J5 budgets cannot say what Enter does when the text exactly names one record (Hayes asks; the arrow then Enter opens). Needs products with the same box (Raycast, Arc, Notion search-or-ask).
 - **Search index lag after deletion.** Observed once (ChatGPT), duration unmeasured.
